@@ -1,7 +1,7 @@
 # Личный проект «Что посмотреть» [![Build status][travis-image]][travis-url]
 
 * Студент: [Sergey Odintsov](https://up.htmlacademy.ru/react/3/user/799215).
-* Наставник: `Неизвестно`.
+* Наставник: `Unknown`.
 
 ---
 
