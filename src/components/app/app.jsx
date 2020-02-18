@@ -3,7 +3,7 @@ import Main from '../main/main.jsx';
 
 const App = () => {
   return (
-    <Main />
+    <Main films={[`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`]} />
   );
 };
 
