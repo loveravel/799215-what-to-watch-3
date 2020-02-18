@@ -2,24 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 const Main = (props) => {
-  const films = props.films;
-  const filmElements = films.map((film) => {
-    return <article key={film} className="small-movie-card catalog__movies-card">
-      <div className="small-movie-card__image">
-        <img
-          src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-          alt="${film}"
-          width="280"
-          height="175"
-        />
-      </div>
-      <h3 className="small-movie-card__title">
-        <a className="small-movie-card__link" href="movie-page.html">
-          {film}
-        </a>
-      </h3>
-    </article>;
-  });
+  const {films} = props;
 
   return (
     <React.Fragment>
@@ -155,7 +138,24 @@ const Main = (props) => {
           </ul>
 
           <div className="catalog__movies-list">
-            {filmElements}
+
+            {films.map((film) => (
+              <article key={film} className="small-movie-card catalog__movies-card">
+                <div className="small-movie-card__image">
+                  <img
+                    src={`img/${film.split(` `).join(`-`).toLowerCase()}.jpg`}
+                    alt={film}
+                    width="280"
+                    height="175"
+                  />
+                </div>
+                <h3 className="small-movie-card__title">
+                  <a className="small-movie-card__link" href="movie-page.html">
+                    {film}
+                  </a>
+                </h3>
+              </article>
+            ))}
           </div>
 
           <div className="catalog__more">

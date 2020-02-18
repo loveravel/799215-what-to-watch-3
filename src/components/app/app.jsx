@@ -1,10 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Main from '../main/main.jsx';
 
-const App = () => {
+const App = (props) => {
+  const {films} = props;
   return (
-    <Main films={[`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`]} />
+    <Main films={films} />
   );
+};
+
+App.propTypes = {
+  films: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default App;
