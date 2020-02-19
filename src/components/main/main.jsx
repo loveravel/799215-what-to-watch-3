@@ -2,24 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 const Main = (props) => {
-  const films = props.films;
-  const filmElements = films.map((film) => {
-    return <article key={film} className="small-movie-card catalog__movies-card">
-      <div className="small-movie-card__image">
-        <img
-          src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-          alt="${film}"
-          width="280"
-          height="175"
-        />
-      </div>
-      <h3 className="small-movie-card__title">
-        <a className="small-movie-card__link" href="movie-page.html">
-          {film}
-        </a>
-      </h3>
-    </article>;
-  });
+  const {films, onTitleClick} = props;
 
   return (
     <React.Fragment>
@@ -66,7 +49,7 @@ const Main = (props) => {
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">The Grand Budapest Hotel</h2>
+              <h2 className="movie-card__title" onClick={onTitleClick}>The Grand Budapest Hotel</h2>
               <p className="movie-card__meta">
                 <span className="movie-card__genre">Drama</span>
                 <span className="movie-card__year">2014</span>
@@ -155,7 +138,24 @@ const Main = (props) => {
           </ul>
 
           <div className="catalog__movies-list">
-            {filmElements}
+
+            {films.map((film) => (
+              <article key={film} className="small-movie-card catalog__movies-card">
+                <div className="small-movie-card__image">
+                  <img
+                    src={`img/${film.split(` `).join(`-`).toLowerCase()}.jpg`}
+                    alt={film}
+                    width="280"
+                    height="175"
+                  />
+                </div>
+                <h3 className="small-movie-card__title">
+                  <a className="small-movie-card__link" href="movie-page.html">
+                    {film}
+                  </a>
+                </h3>
+              </article>
+            ))}
           </div>
 
           <div className="catalog__more">
@@ -171,6 +171,7 @@ const Main = (props) => {
 
 Main.propTypes = {
   films: PropTypes.arrayOf(PropTypes.string),
+  onTitleClick: PropTypes.func,
 };
 
 export default Main;
