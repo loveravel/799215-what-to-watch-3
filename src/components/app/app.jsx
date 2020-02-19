@@ -5,7 +5,7 @@ import Main from '../main/main.jsx';
 const App = (props) => {
   const {films} = props;
   return (
-    <Main films={films} />
+    <Main films={films} onTitleClick={() => {}} />
   );
 };
 

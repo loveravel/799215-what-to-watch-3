@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 const Main = (props) => {
-  const {films} = props;
+  const {films, onTitleClick} = props;
 
   return (
     <React.Fragment>
@@ -49,7 +49,7 @@ const Main = (props) => {
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">The Grand Budapest Hotel</h2>
+              <h2 className="movie-card__title" onClick={onTitleClick}>The Grand Budapest Hotel</h2>
               <p className="movie-card__meta">
                 <span className="movie-card__genre">Drama</span>
                 <span className="movie-card__year">2014</span>
@@ -171,6 +171,7 @@ const Main = (props) => {
 
 Main.propTypes = {
   films: PropTypes.arrayOf(PropTypes.string),
+  onTitleClick: PropTypes.func,
 };
 
 export default Main;
