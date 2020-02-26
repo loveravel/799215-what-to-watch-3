@@ -1,7 +1,6 @@
 import React from "react";
-import Enzyme, {shallow} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import Main from "./main.jsx";
+import renderer from "react-test-renderer";
+import MovieList from "./movie-list.jsx";
 
 const films = [
   {
@@ -62,23 +61,12 @@ const films = [
   },
 ];
 
-Enzyme.configure({
-  adapter: new Adapter(),
-});
+it(`<MovieList /> is rendered correctly`, () => {
+  const tree = renderer
+    .create(<MovieList
+      films={films}
+    />)
+    .toJSON();
 
-it(`The title should be clicked`, () => {
-  const onTitleClick = jest.fn();
-
-  const main = shallow(
-      <Main
-        films={films}
-        onTitleClick={onTitleClick}
-      />
-  );
-
-  const mainTitle = main.find(`h2.movie-card__title`);
-
-  mainTitle.props().onClick();
-
-  expect(onTitleClick.mock.calls.length).toBe(1);
+  expect(tree).toMatchSnapshot();
 });
