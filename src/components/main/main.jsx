@@ -1,5 +1,6 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+import MovieList from "../movie-list/movie-list.jsx";
 
 const Main = (props) => {
   const {films, onTitleClick} = props;
@@ -137,26 +138,9 @@ const Main = (props) => {
             </li>
           </ul>
 
-          <div className="catalog__movies-list">
-
-            {films.map((film) => (
-              <article key={film} className="small-movie-card catalog__movies-card">
-                <div className="small-movie-card__image">
-                  <img
-                    src={`img/${film.split(` `).join(`-`).toLowerCase()}.jpg`}
-                    alt={film}
-                    width="280"
-                    height="175"
-                  />
-                </div>
-                <h3 className="small-movie-card__title">
-                  <a className="small-movie-card__link" href="movie-page.html">
-                    {film}
-                  </a>
-                </h3>
-              </article>
-            ))}
-          </div>
+          <MovieList
+            films={films}
+          />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">
@@ -170,7 +154,11 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  films: PropTypes.arrayOf(PropTypes.string),
+  films: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    posterImage: PropTypes.string,
+    page: PropTypes.string
+  })),
   onTitleClick: PropTypes.func,
 };
 

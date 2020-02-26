@@ -7,7 +7,7 @@ const MovieCard = (props) => {
     <article key={movie.name} onMouseEnter={onCardMouseEnter} className="small-movie-card catalog__movies-card">
       <div className="small-movie-card__image">
         <img
-          src={movie.posterImage}
+          src={`img/${movie.posterImage}.jpg`}
           alt={movie.name}
           width="280"
           height="175"
