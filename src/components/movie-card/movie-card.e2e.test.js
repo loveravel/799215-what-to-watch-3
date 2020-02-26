@@ -37,12 +37,12 @@ Enzyme.configure({
 });
 
 it(`The card should be mouseEnter`, () => {
-  const onMouseCardEnter = jest.fn();
+  const onCardMouseEnter = jest.fn();
 
   const movieCard = shallow(
       <MovieCard
         movie={movie}
-        onCardMouseEnter={onMouseCardEnter}
+        onCardMouseEnter={onCardMouseEnter}
       />
   );
 
@@ -50,5 +50,5 @@ it(`The card should be mouseEnter`, () => {
 
   movieCardElement.simulate(`mouseEnter`);
 
-  expect(onMouseCardEnter.mock.calls.length).toBe(1);
+  expect(onCardMouseEnter.mock.calls.length).toBe(1);
 });
