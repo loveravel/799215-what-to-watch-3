@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const MovieCard = (props) => {
   const {movie, onCardMouseEnter} = props;
   return (
-    <article key={movie.name} onMouseEnter={onCardMouseEnter} className="small-movie-card catalog__movies-card">
+    <article onMouseEnter={onCardMouseEnter} className="small-movie-card catalog__movies-card">
       <div className="small-movie-card__image">
         <img
           src={`img/${movie.posterImage}.jpg`}
