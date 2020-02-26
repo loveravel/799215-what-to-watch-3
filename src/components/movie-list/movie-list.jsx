@@ -32,7 +32,11 @@ class MovieList extends React.Component {
 }
 
 MovieList.propTypes = {
-  films: PropTypes.array,
+  films: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    posterImage: PropTypes.string,
+    page: PropTypes.string
+  })),
 };
 
 export default MovieList;

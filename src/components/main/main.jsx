@@ -154,7 +154,11 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  films: PropTypes.array,
+  films: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    posterImage: PropTypes.string,
+    page: PropTypes.string
+  })),
   onTitleClick: PropTypes.func,
 };
 
