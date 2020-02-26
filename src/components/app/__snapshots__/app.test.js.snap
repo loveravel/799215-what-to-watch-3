@@ -260,6 +260,7 @@ Array [
       >
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -276,7 +277,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="aviator.html"
             >
               Aviator
             </a>
@@ -284,14 +285,15 @@ Array [
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
             <img
-              alt="Bohemian Rhapsody"
+              alt="Aviator"
               height="175"
-              src="img/bohemian-rhapsody.jpg"
+              src="img/aviator.jpg"
               width="280"
             />
           </div>
@@ -300,33 +302,9 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="aviator.html"
             >
-              Bohemian Rhapsody
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <img
-              alt="Macbeth"
-              height="175"
-              src="img/macbeth.jpg"
-              width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="movie-page.html"
-            >
-              Macbeth
+              Aviator
             </a>
           </h3>
         </article>
