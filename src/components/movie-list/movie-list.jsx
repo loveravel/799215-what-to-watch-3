@@ -12,6 +12,7 @@ class MovieList extends React.Component {
 
   render() {
     const {films} = this.props;
+
     return (
       <div className="catalog__movies-list">
         {films.map((movie, index) => {
@@ -31,11 +32,7 @@ class MovieList extends React.Component {
 }
 
 MovieList.propTypes = {
-  films: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string,
-    posterImage: PropTypes.string,
-    page: PropTypes.string
-  })),
+  films: PropTypes.array,
 };
 
 export default MovieList;
