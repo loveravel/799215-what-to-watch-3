@@ -6,7 +6,7 @@ import MoviePage from "../movie-page/movie-page.jsx";
 
 class App extends React.Component {
   render() {
-    const {films, comments} = this.props;
+    const {films, reviews} = this.props;
     return (
       <BrowserRouter>
         <Switch>
@@ -14,7 +14,7 @@ class App extends React.Component {
             <Main films={films} onMainClick={() => {}}/>
           </Route>
           <Route exact path="/films">
-            <MoviePage movie={films[0]} comments={comments} />
+            <MoviePage movie={films[0]} reviews={reviews} />
           </Route>
         </Switch>
       </BrowserRouter>
@@ -28,7 +28,7 @@ App.propTypes = {
     posterImage: PropTypes.string,
     page: PropTypes.string
   })),
-  comments: PropTypes.arrayOf(PropTypes.shape({
+  reviews: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     user: PropTypes.shape({
       id: PropTypes.number,
