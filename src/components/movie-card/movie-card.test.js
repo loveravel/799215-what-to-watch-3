@@ -3,20 +3,21 @@ import renderer from "react-test-renderer";
 import MovieCard from "./movie-card.jsx";
 
 const movie = {
+  id: 1,
   name: `Aviator`,
-  posterImage: `aviator`,
-  previewImage: `aviator`,
-  previewVideo: `aviator`,
-  page: `aviator`,
+  posterImage: `img/the-grand-budapest-hotel-poster.jpg`,
+  previewImage: `img/aviator.jpg`,
+  backgroundImage: `img/bg-the-grand-budapest-hotel.jpg`,
+  previewVideo: `https://`,
+  video: `https://`,
   genre: `Drama / Epic Movie`,
-  release: `February 3, 2005`,
+  released: 2014,
   description: `Having received a small factory from his father,
     Howard Hughes turned it into a gigantic, fantastically profitable enterprise.
     Having become the owner of a huge film company, he shot the most expensive
     film of his time and won the hearts of the most beautiful Hollywood actresses.`,
-  score: 9.5,
-  numberOfVotes: 15,
-  cast: [
+  director: `Martin Scorsese`,
+  starring: [
     `Leonardo DiCaprio`,
     `Cate Blanchett`,
     `Kate Beckinsale`,
@@ -28,7 +29,10 @@ const movie = {
     `Gwen Stefani`,
     `Jude Law`,
   ],
-  duration: 170,
+  runTime: 170,
+  rating: 9.5,
+  scoresCount: 15,
+  isFavorite: false,
 };
 
 it(`<MovieCard /> is rendered correctly`, () => {

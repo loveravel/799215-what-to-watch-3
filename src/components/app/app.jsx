@@ -11,7 +11,7 @@ class App extends React.Component {
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <Main films={films} onTitleClick={() => {}}/>
+            <Main films={films} onMainClick={() => {}}/>
           </Route>
           <Route exact path="/films">
             <MoviePage movie={films[0]} comments={comments} />

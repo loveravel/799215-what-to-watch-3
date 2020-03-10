@@ -8,9 +8,7 @@ exports[`<MovieCard /> is rendered correctly 1`] = `
     className="small-movie-card__image"
   >
     <img
-      alt="Aviator"
       height="175"
-      src="img/aviator.jpg"
       width="280"
     />
   </div>
@@ -19,10 +17,8 @@ exports[`<MovieCard /> is rendered correctly 1`] = `
   >
     <a
       className="small-movie-card__link"
-      href="aviator.html"
-    >
-      Aviator
-    </a>
+      href="#"
+    />
   </h3>
 </article>
 `;

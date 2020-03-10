@@ -2,8 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 import MovieList from "../movie-list/movie-list.jsx";
 
+const GENRES = [
+  `All genres`,
+  `Comedies`,
+  `Crime`,
+  `Documentary`,
+  `Dramas`,
+  `Horror`,
+  `Kids & Family`,
+  `Romance`,
+  `Sci-Fi`,
+  `Thrillers`,
+];
+
 const Main = (props) => {
-  const {films, onTitleClick} = props;
+  const {films, onCardClick} = props;
 
   return (
     <React.Fragment>
@@ -50,7 +63,7 @@ const Main = (props) => {
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title" onClick={onTitleClick}>The Grand Budapest Hotel</h2>
+              <h2 className="movie-card__title">The Grand Budapest Hotel</h2>
               <p className="movie-card__meta">
                 <span className="movie-card__genre">Drama</span>
                 <span className="movie-card__year">2014</span>
@@ -86,60 +99,18 @@ const Main = (props) => {
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
           <ul className="catalog__genres-list">
-            <li className="catalog__genres-item catalog__genres-item--active">
-              <a href="#" className="catalog__genres-link">
-                All genres
-              </a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">
-                Comedies
-              </a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">
-                Crime
-              </a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">
-                Documentary
-              </a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">
-                Dramas
-              </a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">
-                Horror
-              </a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">
-                Kids & Family
-              </a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">
-                Romance
-              </a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">
-                Sci-Fi
-              </a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">
-                Thrillers
-              </a>
-            </li>
+            {GENRES.map((genre) => (
+              <li key={genre} className={`catalog__genres-item${genre === `All genres` ? ` catalog__genres-item--active` : ``}`}>
+                <a href="#" className="catalog__genres-link">
+                  {genre}
+                </a>
+              </li>
+            ))}
           </ul>
 
           <MovieList
             films={films}
+            onCardClick={onCardClick}
           />
 
           <div className="catalog__more">
@@ -159,7 +130,7 @@ Main.propTypes = {
     posterImage: PropTypes.string,
     page: PropTypes.string
   })),
-  onTitleClick: PropTypes.func,
+  onCardClick: PropTypes.func,
 };
 
 export default Main;
