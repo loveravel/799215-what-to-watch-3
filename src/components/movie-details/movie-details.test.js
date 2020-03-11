@@ -1,7 +1,6 @@
 import React from "react";
-import Enzyme, {shallow} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import MovieCard from "./movie-card.jsx";
+import renderer from "react-test-renderer";
+import MovieDetails from "./movie-details.jsx";
 
 const movie = {
   id: 1,
@@ -36,40 +35,12 @@ const movie = {
   isFavorite: false,
 };
 
-Enzyme.configure({
-  adapter: new Adapter(),
-});
+it(`<MovieDetails /> is rendered correctly`, () => {
+  const tree = renderer
+    .create(<MovieDetails
+      movie={movie}
+    />)
+    .toJSON();
 
-it(`The card should be mouseEnter`, () => {
-  const onCardMouseEnter = jest.fn();
-
-  const movieCard = shallow(
-      <MovieCard
-        movie={movie}
-        onCardMouseEnter={onCardMouseEnter}
-      />
-  );
-
-  const movieCardElement = movieCard.find(`.small-movie-card`);
-
-  movieCardElement.simulate(`mouseEnter`);
-
-  expect(onCardMouseEnter.mock.calls.length).toBe(1);
-});
-
-it(`The card should be clicked`, () => {
-  const onCardClick = jest.fn();
-
-  const movieCard = shallow(
-      <MovieCard
-        movie={movie}
-        onCardClick={onCardClick}
-      />
-  );
-
-  const movieCardElement = movieCard.find(`.small-movie-card`);
-
-  movieCardElement.simulate(`click`);
-
-  expect(onCardClick.mock.calls.length).toBe(1);
+  expect(tree).toMatchSnapshot();
 });

@@ -276,7 +276,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="aviator.html"
+              href="#"
             >
               Aviator
             </a>
@@ -290,9 +290,9 @@ Array [
             className="small-movie-card__image"
           >
             <img
-              alt="Aviator"
+              alt="No Country For Old Men"
               height="175"
-              src="img/aviator.jpg"
+              src="img/no-country-for-old-men.jpg"
               width="280"
             />
           </div>
@@ -301,9 +301,9 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="aviator.html"
+              href="#"
             >
-              Aviator
+              No Country For Old Men
             </a>
           </h3>
         </article>

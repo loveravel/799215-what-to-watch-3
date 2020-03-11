@@ -23,7 +23,7 @@ exports[`<MovieList /> is rendered correctly 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="aviator.html"
+        href="#"
       >
         Aviator
       </a>
@@ -37,9 +37,9 @@ exports[`<MovieList /> is rendered correctly 1`] = `
       className="small-movie-card__image"
     >
       <img
-        alt="Aviator"
+        alt="No Country For Old Men"
         height="175"
-        src="img/aviator.jpg"
+        src="img/no-country-for-old-men.jpg"
         width="280"
       />
     </div>
@@ -48,9 +48,9 @@ exports[`<MovieList /> is rendered correctly 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="aviator.html"
+        href="#"
       >
-        Aviator
+        No Country For Old Men
       </a>
     </h3>
   </article>

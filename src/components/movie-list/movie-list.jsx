@@ -11,7 +11,7 @@ class MovieList extends React.Component {
   }
 
   render() {
-    const {films} = this.props;
+    const {films, onCardClick} = this.props;
 
     return (
       <div className="catalog__movies-list">
@@ -19,10 +19,12 @@ class MovieList extends React.Component {
           return index < 8
             ? (<MovieCard
               key={`${movie.name}-${index}`}
-              movie={movie}
+              name={movie.name}
+              previewImage={movie.previewImage}
               onCardMouseEnter={() => {
                 this.setState({card: movie});
               }}
+              onCardClick={onCardClick}
             />)
             : false;
         })}
@@ -37,6 +39,7 @@ MovieList.propTypes = {
     posterImage: PropTypes.string,
     page: PropTypes.string
   })),
+  onCardClick: PropTypes.func,
 };
 
 export default MovieList;

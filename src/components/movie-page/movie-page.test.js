@@ -1,7 +1,6 @@
 import React from "react";
-import Enzyme, {shallow} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import MovieCard from "./movie-card.jsx";
+import renderer from "react-test-renderer";
+import MoviePage from "./movie-page.jsx";
 
 const movie = {
   id: 1,
@@ -36,40 +35,36 @@ const movie = {
   isFavorite: false,
 };
 
-Enzyme.configure({
-  adapter: new Adapter(),
-});
+const reviews = [
+  {
+    id: 1,
+    user: {
+      id: 2,
+      name: `Alex Muir`,
+    },
+    rating: 8.9,
+    comment: `Not bad`,
+    date: `2019-05-08T14:13:56.569Z`,
+  },
+  {
+    id: 2,
+    user: {
+      id: 4,
+      name: `Kate Muir`,
+    },
+    rating: 10,
+    comment: `Wonderful! Wonderful! Wonderful! Wonderful! Wonderful!`,
+    date: `2019-05-08T14:13:56.569Z`,
+  },
+];
 
-it(`The card should be mouseEnter`, () => {
-  const onCardMouseEnter = jest.fn();
+it(`<MoviePage /> is rendered correctly`, () => {
+  const tree = renderer
+    .create(<MoviePage
+      movie={movie}
+      reviews={reviews}
+    />)
+    .toJSON();
 
-  const movieCard = shallow(
-      <MovieCard
-        movie={movie}
-        onCardMouseEnter={onCardMouseEnter}
-      />
-  );
-
-  const movieCardElement = movieCard.find(`.small-movie-card`);
-
-  movieCardElement.simulate(`mouseEnter`);
-
-  expect(onCardMouseEnter.mock.calls.length).toBe(1);
-});
-
-it(`The card should be clicked`, () => {
-  const onCardClick = jest.fn();
-
-  const movieCard = shallow(
-      <MovieCard
-        movie={movie}
-        onCardClick={onCardClick}
-      />
-  );
-
-  const movieCardElement = movieCard.find(`.small-movie-card`);
-
-  movieCardElement.simulate(`click`);
-
-  expect(onCardClick.mock.calls.length).toBe(1);
+  expect(tree).toMatchSnapshot();
 });
