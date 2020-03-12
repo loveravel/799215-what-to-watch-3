@@ -259,17 +259,24 @@ Array [
       >
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="Aviator"
-              height="175"
-              src="img/aviator.jpg"
-              width="280"
-            />
+            <video
+              height={175}
+              muted={true}
+              poster="img/aviator.jpg"
+              width={280}
+            >
+              <source
+                src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+                type="video/mp4"
+              />
+            </video>
           </div>
           <h3
             className="small-movie-card__title"
@@ -284,17 +291,24 @@ Array [
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="No Country For Old Men"
-              height="175"
-              src="img/no-country-for-old-men.jpg"
-              width="280"
-            />
+            <video
+              height={175}
+              muted={true}
+              poster="img/no-country-for-old-men.jpg"
+              width={280}
+            >
+              <source
+                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+                type="video/mp4"
+              />
+            </video>
           </div>
           <h3
             className="small-movie-card__title"

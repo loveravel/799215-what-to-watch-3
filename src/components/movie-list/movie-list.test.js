@@ -73,8 +73,11 @@ it(`<MovieList /> is rendered correctly`, () => {
   const tree = renderer
     .create(<MovieList
       films={films}
-    />)
-    .toJSON();
+    />, {
+      createNodeMock: () => {
+        return {};
+      }
+    }).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

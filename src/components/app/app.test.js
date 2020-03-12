@@ -9,8 +9,8 @@ const films = [
     posterImage: `img/the-grand-budapest-hotel-poster.jpg`,
     previewImage: `img/aviator.jpg`,
     backgroundImage: `img/bg-the-grand-budapest-hotel.jpg`,
-    previewVideo: `https://`,
-    video: `https://`,
+    previewVideo: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    video: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
     genre: `Drama / Epic Movie`,
     released: 2014,
     description: `Having received a small factory from his father,
@@ -41,8 +41,8 @@ const films = [
     posterImage: `img/the-grand-budapest-hotel-poster.jpg`,
     previewImage: `img/no-country-for-old-men.jpg`,
     backgroundImage: `img/bg-the-grand-budapest-hotel.jpg`,
-    previewVideo: `https://`,
-    video: `https://`,
+    previewVideo: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
     genre: `Drama / Epic Movie`,
     released: 2014,
     description: `Having received a small factory from his father,
@@ -73,8 +73,11 @@ it(`<App /> is rendered correctly`, () => {
   const tree = renderer
     .create(<App
       films={films}
-    />)
-    .toJSON();
+    />, {
+      createNodeMock: () => {
+        return {};
+      }
+    }).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

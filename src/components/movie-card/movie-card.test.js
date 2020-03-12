@@ -39,8 +39,11 @@ it(`<MovieCard /> is rendered correctly`, () => {
   const tree = renderer
     .create(<MovieCard
       movie={movie}
-    />)
-    .toJSON();
+    />, {
+      createNodeMock: () => {
+        return {};
+      }
+    }).toJSON();
 
   expect(tree).toMatchSnapshot();
 });
