@@ -1,7 +1,6 @@
 import React from "react";
-import Enzyme, {shallow} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import MovieCard from "./movie-card.jsx";
+import renderer from "react-test-renderer";
+import VideoPlayer from "./video-player.jsx";
 
 const movie = {
   id: 1,
@@ -9,8 +8,8 @@ const movie = {
   posterImage: `img/the-grand-budapest-hotel-poster.jpg`,
   previewImage: `img/aviator.jpg`,
   backgroundImage: `img/bg-the-grand-budapest-hotel.jpg`,
-  previewVideo: `https://`,
-  video: `https://`,
+  previewVideo: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+  video: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
   genre: `Drama / Epic Movie`,
   released: 2014,
   description: `Having received a small factory from his father,
@@ -36,23 +35,18 @@ const movie = {
   isFavorite: false,
 };
 
-Enzyme.configure({
-  adapter: new Adapter(),
-});
 
-it(`The card should be clicked`, () => {
-  const onCardClick = jest.fn();
+it(`<VideoPlayer /> is rendered correctly`, () => {
+  const tree = renderer
+    .create(<VideoPlayer
+      previewVideo={movie.previewVideo}
+      previewImage={movie.previewImage}
+      isPlaying={true}
+    />, {
+      createNodeMock: () => {
+        return {};
+      }
+    }).toJSON();
 
-  const movieCard = shallow(
-      <MovieCard
-        movie={movie}
-        onCardClick={onCardClick}
-      />
-  );
-
-  const movieCardElement = movieCard.find(`.small-movie-card`);
-
-  movieCardElement.simulate(`click`);
-
-  expect(onCardClick.mock.calls.length).toBe(1);
+  expect(tree).toMatchSnapshot();
 });
