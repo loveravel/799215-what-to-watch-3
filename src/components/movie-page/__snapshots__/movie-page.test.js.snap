@@ -12,7 +12,7 @@ exports[`<MoviePage /> is rendered correctly 1`] = `
     >
       <img
         alt="Aviator"
-        src="img/img/bg-the-grand-budapest-hotel.jpg.jpg"
+        src="img/bg-the-grand-budapest-hotel.jpg"
       />
     </div>
     <h1
@@ -163,6 +163,7 @@ exports[`<MoviePage /> is rendered correctly 1`] = `
               <a
                 className="movie-nav__link"
                 href="#"
+                onClick={[Function]}
               >
                 Overview
               </a>
@@ -173,6 +174,7 @@ exports[`<MoviePage /> is rendered correctly 1`] = `
               <a
                 className="movie-nav__link"
                 href="#"
+                onClick={[Function]}
               >
                 Details
               </a>
@@ -183,6 +185,7 @@ exports[`<MoviePage /> is rendered correctly 1`] = `
               <a
                 className="movie-nav__link"
                 href="#"
+                onClick={[Function]}
               >
                 Reviews
               </a>
@@ -235,254 +238,6 @@ exports[`<MoviePage /> is rendered correctly 1`] = `
               Leonardo DiCaprio, Cate Blanchett, Kate Beckinsale, John C. Reilly, Alec Baldwin, Alan Alda, Ian Holm, Danny Huston, Gwen Stefani, Jude Law
             </strong>
           </p>
-        </div>
-        <div
-          className="movie-card__text movie-card__row"
-        >
-          <div
-            className="movie-card__text-col"
-          >
-            <p
-              className="movie-card__details-item"
-            >
-              <strong
-                className="movie-card__details-name"
-              >
-                Martin Scorsese
-              </strong>
-              <span
-                className="movie-card__details-value"
-              >
-                Wes Andreson
-              </span>
-            </p>
-            <p
-              className="movie-card__details-item"
-            >
-              <strong
-                className="movie-card__details-name"
-              >
-                Starring
-              </strong>
-              <span
-                className="movie-card__details-value"
-              >
-                Bill Murray, 
-                <br />
-                Edward Norton, 
-                <br />
-                Jude Law, 
-                <br />
-                Willem Dafoe, 
-                <br />
-                Saoirse Ronan, 
-                <br />
-                Tony Revoloru, 
-                <br />
-                Tilda Swinton, 
-                <br />
-                Tom Wilkinson, 
-                <br />
-                Owen Wilkinson, 
-                <br />
-                Adrien Brody, 
-                <br />
-                Ralph Fiennes, 
-                <br />
-                Jeff Goldblum
-              </span>
-            </p>
-          </div>
-          <div
-            className="movie-card__text-col"
-          >
-            <p
-              className="movie-card__details-item"
-            >
-              <strong
-                className="movie-card__details-name"
-              >
-                Run Time
-              </strong>
-              <span
-                className="movie-card__details-value"
-              >
-                1h 39m
-              </span>
-            </p>
-            <p
-              className="movie-card__details-item"
-            >
-              <strong
-                className="movie-card__details-name"
-              >
-                Genre
-              </strong>
-              <span
-                className="movie-card__details-value"
-              >
-                Comedy
-              </span>
-            </p>
-            <p
-              className="movie-card__details-item"
-            >
-              <strong
-                className="movie-card__details-name"
-              >
-                Released
-              </strong>
-              <span
-                className="movie-card__details-value"
-              >
-                2014
-              </span>
-            </p>
-          </div>
-        </div>
-        <div
-          className="movie-card__reviews movie-card__row"
-        >
-          <div
-            className="movie-card__reviews-col"
-          >
-            <div
-              className="review"
-            >
-              <blockquote
-                className="review__quote"
-              >
-                <p
-                  className="review__text"
-                >
-                  Not bad
-                </p>
-                <footer
-                  className="review__details"
-                >
-                  <cite
-                    className="review__author"
-                  >
-                    Alex Muir
-                  </cite>
-                  <time
-                    className="review__date"
-                    dateTime="2016-12-24"
-                  >
-                    2019-05-08T14:13:56.569Z
-                  </time>
-                </footer>
-              </blockquote>
-              <div
-                className="review__rating"
-              >
-                8.9
-              </div>
-            </div>
-            <div
-              className="review"
-            >
-              <blockquote
-                className="review__quote"
-              >
-                <p
-                  className="review__text"
-                >
-                  Wonderful! Wonderful! Wonderful! Wonderful! Wonderful!
-                </p>
-                <footer
-                  className="review__details"
-                >
-                  <cite
-                    className="review__author"
-                  >
-                    Kate Muir
-                  </cite>
-                  <time
-                    className="review__date"
-                    dateTime="2016-12-24"
-                  >
-                    2019-05-08T14:13:56.569Z
-                  </time>
-                </footer>
-              </blockquote>
-              <div
-                className="review__rating"
-              >
-                10
-              </div>
-            </div>
-          </div>
-          <div
-            className="movie-card__reviews-col"
-          >
-            <div
-              className="review"
-            >
-              <blockquote
-                className="review__quote"
-              >
-                <p
-                  className="review__text"
-                >
-                  Not bad
-                </p>
-                <footer
-                  className="review__details"
-                >
-                  <cite
-                    className="review__author"
-                  >
-                    Alex Muir
-                  </cite>
-                  <time
-                    className="review__date"
-                    dateTime="2016-12-24"
-                  >
-                    2019-05-08T14:13:56.569Z
-                  </time>
-                </footer>
-              </blockquote>
-              <div
-                className="review__rating"
-              >
-                8.9
-              </div>
-            </div>
-            <div
-              className="review"
-            >
-              <blockquote
-                className="review__quote"
-              >
-                <p
-                  className="review__text"
-                >
-                  Wonderful! Wonderful! Wonderful! Wonderful! Wonderful!
-                </p>
-                <footer
-                  className="review__details"
-                >
-                  <cite
-                    className="review__author"
-                  >
-                    Kate Muir
-                  </cite>
-                  <time
-                    className="review__date"
-                    dateTime="2016-12-24"
-                  >
-                    2019-05-08T14:13:56.569Z
-                  </time>
-                </footer>
-              </blockquote>
-              <div
-                className="review__rating"
-              >
-                10
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

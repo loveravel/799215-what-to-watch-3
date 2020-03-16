@@ -50,7 +50,7 @@ class MoviePage extends React.PureComponent {
       <section className="movie-card movie-card--full">
         <div className="movie-card__hero">
           <div className="movie-card__bg">
-            <img src={`img/${movie.backgroundImage}.jpg`} alt={movie.name} />
+            <img src={movie.backgroundImage} alt={movie.name} />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -110,7 +110,7 @@ class MoviePage extends React.PureComponent {
                   {
                     Object.values(Tab).map((tab, index) => (
                       <li
-                        className={`movie-nav__item ${this.state.currentTab === tab ? `movie-nav__item--active` : ``}`}
+                        className={`movie-nav__item${this.state.currentTab === tab ? ` movie-nav__item--active` : ``}`}
                         key={`${tab}-${index}`}
                       >
                         <a
