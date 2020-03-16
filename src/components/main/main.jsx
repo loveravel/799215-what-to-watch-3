@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import MovieList from "../movie-list/movie-list.jsx";
+import PageFooter from "../page-footer/page-footer.jsx";
 
 const GENRES = [
   `All genres`,
@@ -119,6 +120,7 @@ const Main = (props) => {
             </button>
           </div>
         </section>
+        <PageFooter />
       </div>
     </React.Fragment>
   );
