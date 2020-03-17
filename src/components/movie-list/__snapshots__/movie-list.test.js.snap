@@ -1,72 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<MovieList /> is rendered correctly 1`] = `
-<div
-  className="catalog__movies-list"
+<section
+  className="catalog catalog--like-this"
 >
-  <article
-    className="small-movie-card catalog__movies-card"
-    onClick={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
+  <h2
+    className="catalog__title"
   >
-    <div
-      className="small-movie-card__image"
-    >
-      <video
-        height={175}
-        muted={true}
-        poster="img/aviator.jpg"
-        width={280}
-      >
-        <source
-          src="https://"
-          type="video/mp4"
-        />
-      </video>
-    </div>
-    <h3
-      className="small-movie-card__title"
-    >
-      <a
-        className="small-movie-card__link"
-        href="#"
-      >
-        Aviator
-      </a>
-    </h3>
-  </article>
-  <article
-    className="small-movie-card catalog__movies-card"
-    onClick={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
+    More like this
+  </h2>
+  <div
+    className="catalog__movies-list"
   >
-    <div
-      className="small-movie-card__image"
+    <article
+      className="small-movie-card catalog__movies-card"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="img/no-country-for-old-men.jpg"
-        width={280}
+      <div
+        className="small-movie-card__image"
       >
-        <source
-          src="https://"
-          type="video/mp4"
-        />
-      </video>
-    </div>
-    <h3
-      className="small-movie-card__title"
+        <video
+          height={175}
+          muted={true}
+          poster="img/aviator.jpg"
+          width={280}
+        >
+          <source
+            src="https://"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+      <h3
+        className="small-movie-card__title"
+      >
+        <a
+          className="small-movie-card__link"
+          href="#"
+        >
+          Aviator
+        </a>
+      </h3>
+    </article>
+    <article
+      className="small-movie-card catalog__movies-card"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
     >
-      <a
-        className="small-movie-card__link"
-        href="#"
+      <div
+        className="small-movie-card__image"
       >
-        No Country For Old Men
-      </a>
-    </h3>
-  </article>
-</div>
+        <video
+          height={175}
+          muted={true}
+          poster="img/no-country-for-old-men.jpg"
+          width={280}
+        >
+          <source
+            src="https://"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+      <h3
+        className="small-movie-card__title"
+      >
+        <a
+          className="small-movie-card__link"
+          href="#"
+        >
+          No Country For Old Men
+        </a>
+      </h3>
+    </article>
+  </div>
+  
+</section>
 `;

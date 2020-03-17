@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import MovieOverview from "../movie-overview/movie-overview.jsx";
 import MovieDetails from "../movie-details/movie-details.jsx";
 import MovieReviews from "../movie-reviews/movie-reviews.jsx";
+import MovieList from "../movie-list/movie-list.jsx";
 import PageFooter from "../page-footer/page-footer.jsx";
 
 const Tab = {
@@ -45,7 +46,7 @@ class MoviePage extends React.PureComponent {
   }
 
   render() {
-    const {movie, reviews} = this.props;
+    const {films, movie, reviews} = this.props;
 
     return (
       <React.Fragment>
@@ -140,7 +141,13 @@ class MoviePage extends React.PureComponent {
           </div>
         </section>
         <div className="page-content">
+
+          <MovieList
+            films={films}
+          />
+
           <PageFooter />
+
         </div>
       </React.Fragment>
     );
@@ -148,6 +155,7 @@ class MoviePage extends React.PureComponent {
 }
 
 MoviePage.propTypes = {
+  films: PropTypes.array,
   movie: PropTypes.object,
   reviews: PropTypes.array,
 };

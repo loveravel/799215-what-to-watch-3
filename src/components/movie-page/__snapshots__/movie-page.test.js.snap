@@ -247,6 +247,52 @@ Array [
   <div
     className="page-content"
   >
+    <section
+      className="catalog catalog--like-this"
+    >
+      <h2
+        className="catalog__title"
+      >
+        More like this
+      </h2>
+      <div
+        className="catalog__movies-list"
+      >
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height={175}
+              muted={true}
+              poster="img/no-country-for-old-men.jpg"
+              width={280}
+            >
+              <source
+                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+                type="video/mp4"
+              />
+            </video>
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="#"
+            >
+              No Country For Old Men
+            </a>
+          </h3>
+        </article>
+      </div>
+      
+    </section>
     <footer
       className="page-footer"
     >
