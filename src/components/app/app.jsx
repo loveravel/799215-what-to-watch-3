@@ -14,7 +14,7 @@ class App extends React.Component {
             <Main films={films} onMainClick={() => {}}/>
           </Route>
           <Route exact path="/films">
-            <MoviePage movie={films[0]} reviews={reviews} />
+            <MoviePage films={films} movie={films[0]} reviews={reviews} />
           </Route>
         </Switch>
       </BrowserRouter>

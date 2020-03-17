@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import MovieList from "../movie-list/movie-list.jsx";
+import PageFooter from "../page-footer/page-footer.jsx";
 
 const GENRES = [
   `All genres`,
@@ -95,30 +96,15 @@ const Main = (props) => {
       </section>
 
       <div className="page-content">
-        <section className="catalog">
-          <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <ul className="catalog__genres-list">
-            {GENRES.map((genre) => (
-              <li key={genre} className={`catalog__genres-item${genre === `All genres` ? ` catalog__genres-item--active` : ``}`}>
-                <a href="#" className="catalog__genres-link">
-                  {genre}
-                </a>
-              </li>
-            ))}
-          </ul>
+        <MovieList
+          films={films}
+          genres={GENRES}
+          onCardClick={onCardClick}
+        />
 
-          <MovieList
-            films={films}
-            onCardClick={onCardClick}
-          />
+        <PageFooter />
 
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">
-              Show more
-            </button>
-          </div>
-        </section>
       </div>
     </React.Fragment>
   );
