@@ -1,16 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+
+import {Tab} from "../../constants.js";
+
 import MovieOverview from "../movie-overview/movie-overview.jsx";
 import MovieDetails from "../movie-details/movie-details.jsx";
 import MovieReviews from "../movie-reviews/movie-reviews.jsx";
 import MovieList from "../movie-list/movie-list.jsx";
 import PageFooter from "../page-footer/page-footer.jsx";
-
-const Tab = {
-  OVERVIEW: `Overview`,
-  DETAILS: `Details`,
-  REVIEWS: `Reviews`,
-};
 
 class MoviePage extends React.PureComponent {
   constructor(props) {
