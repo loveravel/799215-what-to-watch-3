@@ -1,13 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const RatingDescription = {
-  BAD: `Bad`,
-  NORMAL: `Normal`,
-  GOOD: `Good`,
-  VERY_GOOD: `Very Good`,
-  AWESOME: `Awesome`,
-};
+import {RatingDescription} from "../../constants.js";
 
 const getRatingDescription = (rating) => {
   if (rating <= 3) {

@@ -1,26 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {connect} from "react-redux";
+
 import Main from "../main/main.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
 
-class App extends React.Component {
-  render() {
-    const {films, reviews} = this.props;
-    return (
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/">
-            <Main films={films} onMainClick={() => {}}/>
-          </Route>
-          <Route exact path="/films">
-            <MoviePage films={films} movie={films[0]} reviews={reviews} />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    );
-  }
-}
+const App = (props) => {
+  const {films, reviews} = props;
+
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          <Main movie={films[0]} />
+        </Route>
+        <Route exact path="/films">
+          <MoviePage films={films} movie={films[0]} reviews={reviews} />
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  );
+};
 
 App.propTypes = {
   films: PropTypes.arrayOf(PropTypes.shape({
@@ -38,6 +39,14 @@ App.propTypes = {
     comment: PropTypes.string,
     date: PropTypes.string,
   })),
+  onGenreClick: PropTypes.func,
 };
 
-export default App;
+const mapStateToProps = (state) => {
+  const {films} = state;
+  return {films};
+};
+
+export {App};
+
+export default connect(mapStateToProps)(App);
