@@ -1,5 +1,5 @@
 import React from "react";
-import Logotype from "../logotype/logotype";
+import Logotype from "../logotype/logotype.jsx";
 
 const PageFooter = () => {
 
