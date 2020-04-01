@@ -1,24 +1,10 @@
-import {extend} from '../utils.js';
-import films from '../mocks/films.js';
+import {combineReducers} from "redux";
+import NameSpace from "./name-space.js";
 
-export const initialState = {
-  genreFilter: `All genres`,
-  films,
-};
+import {reducer as data} from "./data/data";
+import {reducer as user} from "./user/user";
 
-const ActionType = {
-  CHANGE_GENRE: `CHANGE_GENRE`,
-};
-
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case ActionType.CHANGE_GENRE:
-      return extend(state, {
-        genreFilter: action.payload,
-      });
-  }
-
-  return state;
-};
-
-export {reducer, ActionType};
+export default combineReducers({
+  [NameSpace.DATA]: data,
+  [NameSpace.USER]: user,
+});
