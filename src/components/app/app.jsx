@@ -5,8 +5,13 @@ import {connect} from "react-redux";
 
 import {getFilms, getPromoMovie} from "../../reducer/data/selectors.js";
 
+import withAuthForm from "../../hocs/with-auth-form/with-auth-form.js";
+
 import Main from "../main/main.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
+import SignIn from "../sign-in/sign-in.jsx";
+
+const SignInWrapped = withAuthForm(SignIn);
 
 const App = (props) => {
   const {films, promoMovie, reviews} = props;
@@ -19,6 +24,9 @@ const App = (props) => {
         </Route>
         <Route exact path="/films">
           <MoviePage films={films} movie={films[0]} reviews={reviews} />
+        </Route>
+        <Route exact path="/login">
+          <SignInWrapped />
         </Route>
       </Switch>
     </BrowserRouter>
