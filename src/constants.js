@@ -1,3 +1,5 @@
+export const DEFAULT_GENRE = `All genres`;
+
 export const Tab = {
   OVERVIEW: `Overview`,
   DETAILS: `Details`,

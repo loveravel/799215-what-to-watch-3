@@ -8,6 +8,10 @@ import MoviePromo from "../movie-promo/movie-promo.jsx";
 const Main = (props) => {
   const {movie} = props;
 
+  if (!movie) {
+    return null;
+  }
+
   return (
     <React.Fragment>
       <MoviePromo
@@ -21,9 +25,7 @@ const Main = (props) => {
 
       <div className="page-content">
 
-        <Catalog
-          standard={true}
-        />
+        <Catalog />
 
         <PageFooter />
 

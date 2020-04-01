@@ -1,11 +1,13 @@
 import React from "react";
-import Logotype from "../logotype/logotype";
+import Logotype from "../logotype/logotype.jsx";
 
 const PageFooter = () => {
 
   return (
     <footer className="page-footer">
-      <Logotype/>
+      <Logotype
+        isLight={true}
+      />
 
       <div className="copyright">
         <p>© 2019 What to watch Ltd.</p>
