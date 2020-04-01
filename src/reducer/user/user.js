@@ -1,6 +1,6 @@
 const AuthorizationStatus = {
-  AUTH: `AUTH`,
-  NO_AUTH: `NO_AUTH`,
+  AUTH: true,
+  NO_AUTH: false,
 };
 
 const initialState = {
@@ -41,10 +41,9 @@ const Operation = {
         throw err;
       });
   },
-
   login: (authData) => (dispatch, getState, api) => {
     return api.post(`/login`, {
-      email: authData.login,
+      email: authData.email,
       password: authData.password,
     })
       .then(() => {

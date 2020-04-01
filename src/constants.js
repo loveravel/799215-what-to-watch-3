@@ -1,5 +1,7 @@
 export const DEFAULT_GENRE = `All genres`;
 
+export const EMAIL_REGEX = RegExp(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+
 export const Tab = {
   OVERVIEW: `Overview`,
   DETAILS: `Details`,
@@ -18,4 +20,14 @@ export const RatingDescription = {
   GOOD: `Good`,
   VERY_GOOD: `Very Good`,
   AWESOME: `Awesome`,
+};
+
+export const ErrorText = {
+  EMAIL: `Please enter a valid email address.`,
+  PASSWORD: `Please enter a valid password.`
+};
+
+export const InputName = {
+  EMAIL: `email`,
+  PASSWORD: `password`,
 };
