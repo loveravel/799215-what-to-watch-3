@@ -3,17 +3,19 @@ import PropTypes from "prop-types";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {connect} from "react-redux";
 
+import {getFilms, getPromoMovie} from "../../reducer/data/selectors.js";
+
 import Main from "../main/main.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
 
 const App = (props) => {
-  const {films, reviews} = props;
+  const {films, promoMovie, reviews} = props;
 
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Main movie={films[0]} />
+          <Main movie={promoMovie}/>
         </Route>
         <Route exact path="/films">
           <MoviePage films={films} movie={films[0]} reviews={reviews} />
@@ -29,6 +31,7 @@ App.propTypes = {
     posterImage: PropTypes.string,
     page: PropTypes.string
   })),
+  promoMovie: PropTypes.object,
   reviews: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     user: PropTypes.shape({
@@ -42,10 +45,10 @@ App.propTypes = {
   onGenreClick: PropTypes.func,
 };
 
-const mapStateToProps = (state) => {
-  const {films} = state;
-  return {films};
-};
+const mapStateToProps = (state) => ({
+  films: getFilms(state),
+  promoMovie: getPromoMovie(state),
+});
 
 export {App};
 

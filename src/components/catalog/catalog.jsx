@@ -2,31 +2,25 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
+import {getFilms, getFilmsCount, getCurrentGenre} from "../../reducer/data/selectors.js";
+
+
 import GenreList from "../genre-list/genre-list.jsx";
 import MovieList from "../movie-list/movie-list.jsx";
 import ButtonMore from "../button-more/button-more.jsx";
 
-
-const getGenres = (films) => {
-  const genres = new Set();
-
-  genres.add(`All genres`);
-
-  films.forEach((movie) => {
-    genres.add(movie.genre);
-  });
-
-  return Array.from(genres).slice(0, 10);
-};
-
 const Catalog = (props) => {
-  const {films, genreFilter, standard} = props;
+  const {films, filmsCount, currentGenre} = props;
   const {onGenreClick} = props;
 
-  const genres = getGenres(films);
+  if (!films) {
+    return null;
+  }
+
+  const genres = [...new Set([`All genres`, ...films.map((film) => film.genre)])];
 
   const getCatalogHeader = () => {
-    if (!standard) {
+    if (filmsCount === 4) {
       return <h2 className="catalog__title">More like this</h2>;
     } else {
       return (
@@ -34,7 +28,7 @@ const Catalog = (props) => {
           <h2 className="catalog__title visually-hidden">Catalog</h2>
           <GenreList
             genres={genres}
-            genreFilter={genreFilter}
+            genreFilter={currentGenre}
             onGenreClick={onGenreClick}
           />
         </React.Fragment>
@@ -43,16 +37,16 @@ const Catalog = (props) => {
   };
 
   return (
-    <section className={`catalog${!standard ? ` catalog--like-this` : ``}`}>
+    <section className={`catalog${filmsCount === 4 ? ` catalog--like-this` : ``}`}>
 
       {
-        getCatalogHeader(standard)
+        getCatalogHeader()
       }
 
       <MovieList
         films={films}
-        genreFilter={genreFilter}
-        showedFilms={8}
+        genreFilter={currentGenre}
+        showedFilms={filmsCount}
       />
 
       <ButtonMore
@@ -69,15 +63,16 @@ Catalog.propTypes = {
     posterImage: PropTypes.string,
     genre: PropTypes.string,
   })),
-  standard: PropTypes.bool,
-  genreFilter: PropTypes.string,
+  filmsCount: PropTypes.number,
+  currentGenre: PropTypes.string,
   onGenreClick: PropTypes.func,
 };
 
-const mapStateToProps = (state) => {
-  const {films, genreFilter} = state;
-  return {films, genreFilter};
-};
+const mapStateToProps = (state) => ({
+  films: getFilms(state),
+  filmsCount: getFilmsCount(state),
+  currentGenre: getCurrentGenre(state),
+});
 
 const mapDispatchToProps = (dispatch) =>({
   onGenreClick(genreFilter) {
