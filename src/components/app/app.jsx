@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {Router, Route, Switch} from "react-router-dom";
+import history from "../../history.js";
 import {connect} from "react-redux";
 
-import {getFilms, getPromoMovie} from "../../reducer/data/selectors.js";
+import {getPromoMovie} from "../../reducer/data/selectors.js";
 
 import withAuthForm from "../../hocs/with-auth-form/with-auth-form.js";
 
@@ -14,22 +15,19 @@ import SignIn from "../sign-in/sign-in.jsx";
 const SignInWrapped = withAuthForm(SignIn);
 
 const App = (props) => {
-  const {films, promoMovie, reviews} = props;
+  const {promoMovie} = props;
 
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <Switch>
         <Route exact path="/">
           <Main movie={promoMovie}/>
-        </Route>
-        <Route exact path="/films">
-          <MoviePage films={films} movie={films[0]} reviews={reviews} />
         </Route>
         <Route exact path="/login">
           <SignInWrapped />
         </Route>
       </Switch>
-    </BrowserRouter>
+    </Router>
   );
 };
 
@@ -50,11 +48,9 @@ App.propTypes = {
     comment: PropTypes.string,
     date: PropTypes.string,
   })),
-  onGenreClick: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
-  films: getFilms(state),
   promoMovie: getPromoMovie(state),
 });
 
