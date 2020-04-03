@@ -1,5 +1,6 @@
 import {createSelector} from "reselect";
 import NameSpace from "../name-space.js";
+import {DEFAULT_GENRE} from "../../constants.js";
 
 export const getFilms = (state) => {
   return state[NameSpace.DATA].films;
@@ -17,11 +18,20 @@ export const getCurrentGenre = (state) => {
   return state[NameSpace.DATA].currentGenre;
 };
 
-export const getDataParam = createSelector(
+export const getFavoritesFilms = (state) => {
+  return state[NameSpace.DATA].favorites;
+};
+
+export const getFilteredFilms = createSelector(
     getFilms,
-    getPromoMovie,
     getCurrentGenre,
-    (films) => {
-      return films.filter((it) => it.type === `genre`);
+    getFilmsCount,
+    (films, currentGenre, filmsCount) => {
+      if (currentGenre === DEFAULT_GENRE) {
+        return films;
+      }
+
+      const filteredFilms = films.filter((film) => film.genre === currentGenre);
+      return filteredFilms;
     }
 );

@@ -49,9 +49,7 @@ const Catalog = (props) => {
         showedFilms={filmsCount}
       />
 
-      <ButtonMore
-        onButtonClick={() => {}}
-      />
+      <ButtonMore />
 
     </section>
   );
