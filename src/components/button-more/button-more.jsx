@@ -9,8 +9,6 @@ const ButtonMore = (props) => {
   const {filteredFilms, filmsCount, incrementFilmsCount} = props;
 
   if (filteredFilms.length <= filmsCount) {
-    console.log(filteredFilms);
-
     return null;
   }
 
