@@ -5,6 +5,9 @@ import {connect} from 'react-redux';
 
 import {getAuthorizationStatus, getUserData} from "../../reducer/user/selectors.js";
 
+import {BASE_URL} from "../../constants.js";
+import history from "../../history.js";
+
 const UserBlock = (props) => {
   const {userData, authorized} = props;
   return (
@@ -13,14 +16,15 @@ const UserBlock = (props) => {
         !authorized
           ? (<Link to="/login" className="user-block__link">Sign in</Link>)
           : (
-            <Link to="/my-list" className="user-block__avatar">
+            <div className="user-block__avatar">
               <img
-                src={`https://htmlacademy-react-3.appspot.com${userData.avatarUrl}`}
+                src={`${BASE_URL}${userData.avatarUrl}`}
                 alt="User avatar"
                 width="63"
                 height="63"
+                onClick={() => history.push(`/mylist`)}
               />
-            </Link>
+            </div>
           )
       }
     </div>
