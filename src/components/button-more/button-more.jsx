@@ -13,15 +13,17 @@ const ButtonMore = (props) => {
   }
 
   return (
-    <button
-      className="catalog__button"
-      type="button"
-      onClick={() => {
-        incrementFilmsCount();
-      }}
-    >
-      Show more
-    </button>
+    <div className="catalog__more">
+      <button
+        className="catalog__button"
+        type="button"
+        onClick={() => {
+          incrementFilmsCount();
+        }}
+      >
+        Show more
+      </button>
+    </div>
   );
 };
 
