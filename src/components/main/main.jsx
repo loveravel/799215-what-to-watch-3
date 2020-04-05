@@ -36,11 +36,7 @@ const Main = (props) => {
         <PageHeader additionalClass="movie-card__head" />
 
         <MoviePromo
-          id={movie.id}
-          name={movie.name}
-          posterImage={movie.posterImage}
-          genre={movie.genre}
-          released={movie.released}
+          movie={movie}
           isFavorite={movie.isFavorite}
         />
       </section>
