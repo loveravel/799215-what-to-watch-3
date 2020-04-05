@@ -9,7 +9,7 @@ import NameSpace from "../../reducer/name-space.js";
 import {AuthorizationStatus, FilmsCount, DEFAULT_GENRE} from "../../constants.js";
 import {films, movie} from "../../mocks/test-data.js";
 
-import Main from "./main.jsx";
+import {Main} from "./main.jsx";
 
 const mockStore = configureStore([]);
 
@@ -38,7 +38,10 @@ it(`<Main/> is rendered correctly`, () => {
         <Router history={history}>
           <Main {...props}/>
         </Router>
-      </Provider>
-  ).toJSON();
+      </Provider>, {
+        createNodeMock: () => {
+          return {};
+        }
+      }).toJSON();
   expect(tree).toMatchSnapshot();
 });

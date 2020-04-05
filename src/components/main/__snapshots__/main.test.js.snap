@@ -156,7 +156,7 @@ Array [
         className="catalog__genres-list"
       >
         <li
-          className="catalog__genres-item"
+          className="catalog__genres-item catalog__genres-item--active"
         >
           <a
             className="catalog__genres-link"
@@ -185,13 +185,126 @@ Array [
             href="#"
             onClick={[Function]}
           >
-            Drama
+            
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+            onClick={[Function]}
+          >
+            
           </a>
         </li>
       </ul>
-      <p>
-        No films
-      </p>
+      <div
+        className="catalog__movies-list"
+      >
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+            onClick={[Function]}
+          >
+            <video
+              height="175"
+              muted={true}
+              poster=""
+              src=""
+              style={
+                Object {
+                  "objectFit": "cover",
+                }
+              }
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/1"
+              onClick={[Function]}
+            >
+              Movie 1
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+            onClick={[Function]}
+          >
+            <video
+              height="175"
+              muted={true}
+              poster=""
+              style={
+                Object {
+                  "objectFit": "cover",
+                }
+              }
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/2"
+              onClick={[Function]}
+            >
+              Movie 2
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+            onClick={[Function]}
+          >
+            <video
+              height="175"
+              muted={true}
+              poster=""
+              src=""
+              style={
+                Object {
+                  "objectFit": "cover",
+                }
+              }
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/3"
+              onClick={[Function]}
+            >
+              Movie 3
+            </a>
+          </h3>
+        </article>
+      </div>
       <div
         className="catalog__more"
       >
