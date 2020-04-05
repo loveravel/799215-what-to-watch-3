@@ -4,6 +4,8 @@ export const EMAIL_REGEX = RegExp(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
 
 export const BASE_URL = `https://htmlacademy-react-3.appspot.com`;
 
+export const MAX_GENRES_COUNT = 10;
+
 export const AppRoute = {
   ROOT: `/`,
   LOGIN: `/login`,
