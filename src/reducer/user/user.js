@@ -1,4 +1,6 @@
-import ModelUser from "../../api/model-user.js"
+import ModelUser from "../../api/model-user.js";
+import history from "../../history.js";
+import {Operation as DataOperation} from "../data/data.js";
 
 const AuthorizationStatus = {
   AUTH: true,
@@ -34,6 +36,7 @@ const Operation = {
       .then((response) => {
         dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
         dispatch(ActionCreator.setUser(response.data));
+        dispatch(DataOperation.loadFavorites());
       })
       .catch((err) => {
         throw err;
@@ -47,6 +50,8 @@ const Operation = {
       .then((response) => {
         dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
         dispatch(ActionCreator.setUser(response.data));
+        dispatch(DataOperation.loadFavorites());
+        history.push(`/`);
       });
   },
 };
