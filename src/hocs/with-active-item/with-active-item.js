@@ -25,7 +25,7 @@ const withActiveItem = (Component) => {
         <Component
           {...this.props}
           activeItemIndex={activeItemIndex}
-          onChangeActiveItemIndex={this.handleActiveItemIndex}
+          onItemClick={this.handleActiveItemIndex}
         />
       );
     }
