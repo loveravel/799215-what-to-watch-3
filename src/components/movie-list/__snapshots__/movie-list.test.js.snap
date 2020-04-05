@@ -1,82 +1,115 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<MovieList /> is rendered correctly 1`] = `
-<section
-  className="catalog catalog--like-this"
+exports[`<MovieList /> component renders correctly 1`] = `
+<div
+  className="catalog__movies-list"
 >
-  <h2
-    className="catalog__title"
+  <article
+    className="small-movie-card catalog__movies-card"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
-    More like this
-  </h2>
-  <div
-    className="catalog__movies-list"
+    <div
+      className="small-movie-card__image"
+      onClick={[Function]}
+    >
+      <video
+        height="175"
+        muted={true}
+        poster=""
+        src=""
+        style={
+          Object {
+            "objectFit": "cover",
+          }
+        }
+        width="280"
+      />
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="/films/1"
+        onClick={[Function]}
+      >
+        Movie 1
+      </a>
+    </h3>
+  </article>
+  <article
+    className="small-movie-card catalog__movies-card"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
-    <article
-      className="small-movie-card catalog__movies-card"
+    <div
+      className="small-movie-card__image"
       onClick={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
     >
-      <div
-        className="small-movie-card__image"
+      <video
+        height="175"
+        muted={true}
+        poster=""
+        style={
+          Object {
+            "objectFit": "cover",
+          }
+        }
+        width="280"
+      />
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="/films/2"
+        onClick={[Function]}
       >
-        <video
-          height={175}
-          muted={true}
-          poster="img/aviator.jpg"
-          width={280}
-        >
-          <source
-            src="https://"
-            type="video/mp4"
-          />
-        </video>
-      </div>
-      <h3
-        className="small-movie-card__title"
-      >
-        <a
-          className="small-movie-card__link"
-          href="#"
-        >
-          Aviator
-        </a>
-      </h3>
-    </article>
-    <article
-      className="small-movie-card catalog__movies-card"
+        Movie 2
+      </a>
+    </h3>
+  </article>
+  <article
+    className="small-movie-card catalog__movies-card"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div
+      className="small-movie-card__image"
       onClick={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
     >
-      <div
-        className="small-movie-card__image"
+      <video
+        height="175"
+        muted={true}
+        poster=""
+        src=""
+        style={
+          Object {
+            "objectFit": "cover",
+          }
+        }
+        width="280"
+      />
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="/films/3"
+        onClick={[Function]}
       >
-        <video
-          height={175}
-          muted={true}
-          poster="img/no-country-for-old-men.jpg"
-          width={280}
-        >
-          <source
-            src="https://"
-            type="video/mp4"
-          />
-        </video>
-      </div>
-      <h3
-        className="small-movie-card__title"
-      >
-        <a
-          className="small-movie-card__link"
-          href="#"
-        >
-          No Country For Old Men
-        </a>
-      </h3>
-    </article>
-  </div>
+        Movie 3
+      </a>
+    </h3>
+  </article>
+</div>
+`;
+
+exports[`<MovieList /> component renders correctly without films 1`] = `
+<p>
   
-</section>
+</p>
 `;
