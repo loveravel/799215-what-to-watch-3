@@ -1,79 +1,104 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-class VideoPlayer extends React.PureComponent {
-  constructor(props) {
-    super(props);
+const VideoPlayer = (props) => {
+  const {
+    movieName,
+    isPlaying,
+    isLoading,
+    isFullScreenMode,
+    progress,
+    timeRemain,
+    onToggleRunMode,
+    onChangeScreenMode,
+    onClosePlayer,
+    children
+  } = props;
 
-    this._videoRef = React.createRef();
-
-    this.state = {
-      process: null,
-      isLoading: true,
-      isPlaying: props.isPlaying,
-      isMute: true,
-    };
-  }
-
-  componentDidMount() {
-    const video = this._videoRef.current;
-
-    video.oncanplaythrough = () => this.setState({
-      isLoading: false,
-    });
-
-    video.onplay = () => this.setState({
-      isPlaying: true,
-    });
-
-    video.onpause = () => this.setState({
-      isPlaying: false,
-    });
-
-    video.ontimeupdate = () => this.setState({
-      progress: video.currentTime,
-    });
-  }
-
-  componentWillUnmount() {
-    const video = this._videoRef.current;
-
-    video.oncanplaythrough = null;
-    video.onplay = null;
-    video.onpause = null;
-    video.ontimeupdate = null;
-    video.previewVideo = ``;
-  }
-
-  componentDidUpdate() {
-    const video = this._videoRef.current;
-
-    if (this.props.isPlaying) {
-      video.play();
-    } else {
-      video.load();
-    }
-  }
-
-  render() {
-    const {previewVideo, previewImage} = this.props;
-    const video = <video
-      width ={280} height ={175}
-      muted={this.state.isMute}
-      poster={previewImage}
-      ref={this._videoRef}
+  return (
+    <div
+      className="player"
+      style={{cursor: `${isFullScreenMode ? `none` : `auto`}`}}
+      onMouseMove={isFullScreenMode ? onChangeScreenMode : null}
+      onClick={isFullScreenMode ? onChangeScreenMode : null}
     >
-      <source src={previewVideo} type="video/mp4" />
-    </video>;
+      {children}
+      <button
+        type="button"
+        className={`player__exit ${isFullScreenMode ? `visually-hidden` : ``}`}
+        onClick={onClosePlayer}
+      >
+        Exit
+      </button>
 
-    return video;
-  }
-}
+      <div
+        className={`player__controls ${isFullScreenMode ? `visually-hidden` : ``}`}
+      >
+        <div className="player__controls-row">
+          <div className="player__time">
+            <progress className="player__progress" value={progress} max="100"></progress>
+            <div className="player__toggler" style={{left: `${progress}%`}}>Toggler</div>
+          </div>
+          <div className="player__time-value">{timeRemain}</div>
+        </div>
+
+        <div className="player__controls-row">
+          <button
+            type="button"
+            className="player__play"
+            disabled={isLoading}
+            style={{opacity: isLoading ? 0.4 : 1}}
+            onClick={onToggleRunMode}
+          >
+            {
+              isPlaying ?
+              <>
+                <svg viewBox="0 0 14 21" width="14" height="21">
+                  <use xlinkHref="#pause"></use>
+                </svg>
+                <span>Pause</span>
+              </>
+                :
+              <>
+                <svg viewBox="0 0 19 19" width="19" height="19">
+                  <use xlinkHref="#play-s"></use>
+                </svg>
+                <span>Play</span>
+              </>
+            }
+          </button>
+          <div className="player__name">{movieName}</div>
+
+          <button
+            type="button"
+            className="player__full-screen"
+            onClick={onChangeScreenMode}
+          >
+            <svg viewBox="0 0 27 27" width="27" height="27">
+              <use xlinkHref="#full-screen"></use>
+            </svg>
+            <span>Full screen</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 VideoPlayer.propTypes = {
-  previewVideo: PropTypes.string,
-  previewImage: PropTypes.string,
-  isPlaying: PropTypes.bool,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+  movieName: PropTypes.string.isRequired,
+  isPlaying: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  isFullScreenMode: PropTypes.bool.isRequired,
+  progress: PropTypes.number.isRequired,
+  timeRemain: PropTypes.string.isRequired,
+  onToggleRunMode: PropTypes.func.isRequired,
+  onChangeScreenMode: PropTypes.func.isRequired,
+  onClosePlayer: PropTypes.func.isRequired
 };
 
 export default VideoPlayer;
