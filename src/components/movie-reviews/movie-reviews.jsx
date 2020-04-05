@@ -5,6 +5,14 @@ import MovieReview from "../movie-review/movie-review.jsx";
 const MovieReviews = (props) => {
   const {reviews} = props;
 
+  if (reviews.length === 0) {
+    return (
+      <div className="movie-card__reviews movie-card__row">
+        No reviews
+      </div>
+    );
+  }
+
   return (
     <div className="movie-card__reviews movie-card__row">
       <div className="movie-card__reviews-col">
