@@ -1,6 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import GenreList from "../genre-list/genre-list.jsx";
+
+import GenreList from "./genre-list.jsx";
 
 it(`<GenresList/> is rendered correctly`, () => {
   const props = {
