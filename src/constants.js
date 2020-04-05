@@ -6,6 +6,13 @@ export const BASE_URL = `https://htmlacademy-react-3.appspot.com`;
 
 export const MAX_GENRES_COUNT = 10;
 
+export const MAX_RATING = 5;
+
+export const AuthorizationStatus = {
+  AUTH: true,
+  NO_AUTH: false,
+};
+
 export const AppRoute = {
   ROOT: `/`,
   LOGIN: `/login`,
