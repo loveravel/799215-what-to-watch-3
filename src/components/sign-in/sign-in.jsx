@@ -7,7 +7,7 @@ import PageFooter from "../page-footer/page-footer.jsx";
 import Logotype from "../logotype/logotype.jsx";
 
 const SignIn = (props) => {
-  const {authorized, isValid, formData, formError} = props;
+  const {authorized, isValid, formError} = props;
   const {onChange, onSubmit} = props;
 
   if (authorized) {
@@ -86,10 +86,6 @@ const SignIn = (props) => {
 SignIn.propTypes = {
   authorized: PropTypes.bool,
   isValid: PropTypes.bool,
-  formData: PropTypes.shape({
-    email: PropTypes.string,
-    password: PropTypes.string,
-  }),
   formError: PropTypes.shape({
     email: PropTypes.string,
     password: PropTypes.string,
