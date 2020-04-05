@@ -7,9 +7,9 @@ const GenreList = (props) => {
 
   return (
     <ul className="catalog__genres-list">
-      {genres.map((genre) => (
+      {genres.map((genre, index) => (
         <li
-          key={genre}
+          key={`${genre}-${index}`}
           className={`catalog__genres-item${genre === genreFilter ? ` catalog__genres-item--active` : ``}`}
         >
           <a
