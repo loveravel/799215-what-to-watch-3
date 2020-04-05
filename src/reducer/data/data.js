@@ -1,6 +1,7 @@
 import {extend} from "../../utils.js";
 import ModelMovie from "../../api/model-movie.js";
 import {DEFAULT_GENRE, FilmsCount, FavoriteStatus} from "../../constants.js";
+import history from "../../history.js";
 
 const initialState = {
   films: [],
@@ -131,7 +132,9 @@ const Operation = {
       .then((response) => {
         dispatch(ActionCreator.addReview(response.data));
         onFormSuccess();
-        setTimeout(() => history.push(`/films/${id}`), 1500);
+        setTimeout(() => {
+          history.push(`/films/${id}`);
+        }, 1500);
       });
   },
 };
@@ -183,6 +186,10 @@ const reducer = (state = initialState, action) => {
     case ActionType.LOAD_REVIEWS:
       return extend(state, {
         reviews: action.payload,
+      });
+    case ActionType.ADD_REVIEW:
+      return extend(state, {
+        reviews: [...action.payload],
       });
   }
 
