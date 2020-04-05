@@ -1,11 +1,7 @@
 import ModelUser from "../../api/model-user.js";
 import history from "../../history.js";
 import {Operation as DataOperation} from "../data/data.js";
-
-const AuthorizationStatus = {
-  AUTH: true,
-  NO_AUTH: false,
-};
+import {AuthorizationStatus} from "../../constants.js";
 
 const initialState = {
   authorizationStatus: AuthorizationStatus.NO_AUTH,
