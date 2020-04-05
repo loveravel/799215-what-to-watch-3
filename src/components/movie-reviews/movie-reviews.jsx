@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import {getFormatDate} from "../../utils.js";
-
 import MovieReview from "../movie-review/movie-review.jsx";
 
 const MovieReviews = (props) => {
@@ -25,7 +23,7 @@ const MovieReviews = (props) => {
             user={review.user}
             rating={review.rating}
             comment={review.comment}
-            date={getFormatDate(review.date)}
+            date={review.date}
           />
         )}
       </div>
@@ -36,7 +34,7 @@ const MovieReviews = (props) => {
             user={review.user}
             rating={review.rating}
             comment={review.comment}
-            date={getFormatDate(review.date)}
+            date={review.date}
           />
         )}
       </div>
