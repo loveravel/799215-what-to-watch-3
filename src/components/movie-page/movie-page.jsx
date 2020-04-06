@@ -20,7 +20,7 @@ const WrappedMovieTabs = withActiveItem(MovieTabs);
 class MoviePage extends React.PureComponent {
 
   componentDidMount() {
-    return this.props.onLoadReviews(this.props.movie.id);
+    return this.props.onLoadReviews(this.props.movieID);
   }
 
   render() {
@@ -94,14 +94,14 @@ MoviePage.propTypes = {
   movie: PropTypes.object,
   reviews: PropTypes.array,
   onLoadReviews: PropTypes.func,
+  movieID: PropTypes.number.isRequired,
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state, {movieID}) => {
   return {
     films: getFilms(state),
-    movie: getMovie(state, ownProps.match.params.id),
-    similarFilms: getSimilarFilms(state, ownProps.match.params.id),
-    filmReviews: getReviews(state),
+    movie: getMovie(state, movieID),
+    similarFilms: getSimilarFilms(state, movieID),
     reviews: getReviews(state),
   };
 };
