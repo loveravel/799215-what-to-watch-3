@@ -1,22 +1,48 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
+
+import {getFilmsCount, getFilteredFilms} from "../../reducer/data/selectors.js";
+import {ActionCreator} from "../../reducer/data/data.js";
 
 const ButtonMore = (props) => {
-  const {onButtonClick} = props;
+  const {filteredFilms, filmsCount, incrementFilmsCount} = props;
+
+  if (filteredFilms.length <= filmsCount) {
+    return null;
+  }
 
   return (
-    <button
-      className="catalog__button"
-      type="button"
-      onClick={onButtonClick}
-    >
-      Show more
-    </button>
+    <div className="catalog__more">
+      <button
+        className="catalog__button"
+        type="button"
+        onClick={() => {
+          incrementFilmsCount();
+        }}
+      >
+        Show more
+      </button>
+    </div>
   );
 };
 
 ButtonMore.propTypes = {
-  onButtonClick: PropTypes.func,
+  filteredFilms: PropTypes.array,
+  filmsCount: PropTypes.number,
+  incrementFilmsCount: PropTypes.func,
 };
 
-export default ButtonMore;
+const mapStateToProps = (state) => ({
+  filmsCount: getFilmsCount(state),
+  filteredFilms: getFilteredFilms(state),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  incrementFilmsCount() {
+    dispatch(ActionCreator.incrementFilmsCount());
+  }
+});
+
+export {ButtonMore};
+export default connect(mapStateToProps, mapDispatchToProps)(ButtonMore);

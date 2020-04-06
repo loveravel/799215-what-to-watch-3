@@ -16,7 +16,7 @@ exports[`<MovieReviews /> is rendered correctly 1`] = `
         <p
           className="review__text"
         >
-          Not bad
+          
         </p>
         <footer
           className="review__details"
@@ -24,20 +24,20 @@ exports[`<MovieReviews /> is rendered correctly 1`] = `
           <cite
             className="review__author"
           >
-            Alex Muir
+            
           </cite>
           <time
             className="review__date"
-            dateTime="2016-12-24"
+            dateTime="2019-05-08T14:13:56.569Z"
           >
-            2019-05-08T14:13:56.569Z
+            May 8, 2019
           </time>
         </footer>
       </blockquote>
       <div
         className="review__rating"
       >
-        8.9
+        5.5
       </div>
     </div>
     <div
@@ -49,7 +49,7 @@ exports[`<MovieReviews /> is rendered correctly 1`] = `
         <p
           className="review__text"
         >
-          Wonderful! Wonderful! Wonderful! Wonderful! Wonderful!
+          
         </p>
         <footer
           className="review__details"
@@ -57,20 +57,20 @@ exports[`<MovieReviews /> is rendered correctly 1`] = `
           <cite
             className="review__author"
           >
-            Kate Muir
+            
           </cite>
           <time
             className="review__date"
-            dateTime="2016-12-24"
+            dateTime="2019-05-08T14:13:56.569Z"
           >
-            2019-05-08T14:13:56.569Z
+            May 8, 2019
           </time>
         </footer>
       </blockquote>
       <div
         className="review__rating"
       >
-        10
+        5.5
       </div>
     </div>
   </div>
@@ -86,7 +86,7 @@ exports[`<MovieReviews /> is rendered correctly 1`] = `
         <p
           className="review__text"
         >
-          Not bad
+          
         </p>
         <footer
           className="review__details"
@@ -94,53 +94,20 @@ exports[`<MovieReviews /> is rendered correctly 1`] = `
           <cite
             className="review__author"
           >
-            Alex Muir
+            
           </cite>
           <time
             className="review__date"
-            dateTime="2016-12-24"
+            dateTime="2019-05-08T14:13:56.569Z"
           >
-            2019-05-08T14:13:56.569Z
+            May 8, 2019
           </time>
         </footer>
       </blockquote>
       <div
         className="review__rating"
       >
-        8.9
-      </div>
-    </div>
-    <div
-      className="review"
-    >
-      <blockquote
-        className="review__quote"
-      >
-        <p
-          className="review__text"
-        >
-          Wonderful! Wonderful! Wonderful! Wonderful! Wonderful!
-        </p>
-        <footer
-          className="review__details"
-        >
-          <cite
-            className="review__author"
-          >
-            Kate Muir
-          </cite>
-          <time
-            className="review__date"
-            dateTime="2016-12-24"
-          >
-            2019-05-08T14:13:56.569Z
-          </time>
-        </footer>
-      </blockquote>
-      <div
-        className="review__rating"
-      >
-        10
+        5.5
       </div>
     </div>
   </div>

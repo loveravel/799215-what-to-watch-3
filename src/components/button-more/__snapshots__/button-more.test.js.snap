@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ButtonMore /> is rendered correctly with a large number of films 1`] = `
+<div
+  className="catalog__more"
+>
+  <button
+    className="catalog__button"
+    onClick={[Function]}
+    type="button"
+  >
+    Show more
+  </button>
+</div>
+`;
+
+exports[`<ButtonMore /> is rendered correctly with a small number of films 1`] = `null`;

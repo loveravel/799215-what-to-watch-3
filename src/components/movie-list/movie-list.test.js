@@ -1,83 +1,65 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import {Provider} from "react-redux";
+import {Router} from "react-router-dom";
+import configureStore from "redux-mock-store";
+
+import {films} from "../../mocks/test-data.js";
+import history from "../../history.js";
+import NameSpace from "../../reducer/name-space.js";
+
 import MovieList from "./movie-list.jsx";
 
-const films = [
-  {
-    id: 1,
-    name: `Aviator`,
-    posterImage: `img/the-grand-budapest-hotel-poster.jpg`,
-    previewImage: `img/aviator.jpg`,
-    backgroundImage: `img/bg-the-grand-budapest-hotel.jpg`,
-    previewVideo: `https://`,
-    video: `https://`,
-    genre: `Drama / Epic Movie`,
-    released: 2014,
-    description: `Having received a small factory from his father,
-      Howard Hughes turned it into a gigantic, fantastically profitable enterprise.
-      Having become the owner of a huge film company, he shot the most expensive
-      film of his time and won the hearts of the most beautiful Hollywood actresses.`,
-    director: `Martin Scorsese`,
-    starring: [
-      `Leonardo DiCaprio`,
-      `Cate Blanchett`,
-      `Kate Beckinsale`,
-      `John C. Reilly`,
-      `Alec Baldwin`,
-      `Alan Alda`,
-      `Ian Holm`,
-      `Danny Huston`,
-      `Gwen Stefani`,
-      `Jude Law`,
-    ],
-    runTime: 170,
-    rating: 9.5,
-    scoresCount: 15,
-    isFavorite: false,
-  },
-  {
-    id: 2,
-    name: `No Country For Old Men`,
-    posterImage: `img/the-grand-budapest-hotel-poster.jpg`,
-    previewImage: `img/no-country-for-old-men.jpg`,
-    backgroundImage: `img/bg-the-grand-budapest-hotel.jpg`,
-    previewVideo: `https://`,
-    video: `https://`,
-    genre: `Drama / Epic Movie`,
-    released: 2014,
-    description: `Having received a small factory from his father,
-      Howard Hughes turned it into a gigantic, fantastically profitable enterprise.
-      Having become the owner of a huge film company, he shot the most expensive
-      film of his time and won the hearts of the most beautiful Hollywood actresses.`,
-    director: `Martin Scorsese`,
-    starring: [
-      `Leonardo DiCaprio`,
-      `Cate Blanchett`,
-      `Kate Beckinsale`,
-      `John C. Reilly`,
-      `Alec Baldwin`,
-      `Alan Alda`,
-      `Ian Holm`,
-      `Danny Huston`,
-      `Gwen Stefani`,
-      `Jude Law`,
-    ],
-    runTime: 170,
-    rating: 9.5,
-    scoresCount: 15,
-    isFavorite: false,
-  },
-];
+const mockStore = configureStore([]);
 
-it(`<MovieList /> is rendered correctly`, () => {
+it(`<MovieList /> component renders correctly`, () => {
+  const store = mockStore({
+    [NameSpace.DATA]: {
+      films
+    }
+  });
+
+  const props = {
+    films,
+    message: ``,
+  };
+
   const tree = renderer
-    .create(<MovieList
-      films={films}
-    />, {
-      createNodeMock: () => {
-        return {};
-      }
-    }).toJSON();
+    .create(
+        <Provider store={store}>
+          <Router history={history}>
+            <MovieList {...props}/>
+          </Router>
+        </Provider>, {
+          createNodeMock: () => {
+            return {};
+          }
+        }).toJSON();
+  expect(tree).toMatchSnapshot();
+});
 
+it(`<MovieList /> component renders correctly without films`, () => {
+  const store = mockStore({
+    [NameSpace.DATA]: {
+      films: [],
+    }
+  });
+
+  const props = {
+    films: [],
+    message: ``,
+  };
+
+  const tree = renderer
+    .create(
+        <Provider store={store}>
+          <Router history={history}>
+            <MovieList {...props}/>
+          </Router>
+        </Provider>, {
+          createNodeMock: () => {
+            return {};
+          }
+        }).toJSON();
   expect(tree).toMatchSnapshot();
 });

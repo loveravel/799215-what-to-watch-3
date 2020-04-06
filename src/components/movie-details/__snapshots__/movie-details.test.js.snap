@@ -13,12 +13,12 @@ exports[`<MovieDetails /> is rendered correctly 1`] = `
       <strong
         className="movie-card__details-name"
       >
-        Martin Scorsese
+        Director
       </strong>
       <span
         className="movie-card__details-value"
       >
-        Wes Andreson
+        
       </span>
     </p>
     <p
@@ -31,31 +31,7 @@ exports[`<MovieDetails /> is rendered correctly 1`] = `
       </strong>
       <span
         className="movie-card__details-value"
-      >
-        Bill Murray, 
-        <br />
-        Edward Norton, 
-        <br />
-        Jude Law, 
-        <br />
-        Willem Dafoe, 
-        <br />
-        Saoirse Ronan, 
-        <br />
-        Tony Revoloru, 
-        <br />
-        Tilda Swinton, 
-        <br />
-        Tom Wilkinson, 
-        <br />
-        Owen Wilkinson, 
-        <br />
-        Adrien Brody, 
-        <br />
-        Ralph Fiennes, 
-        <br />
-        Jeff Goldblum
-      </span>
+      />
     </p>
   </div>
   <div
@@ -72,7 +48,7 @@ exports[`<MovieDetails /> is rendered correctly 1`] = `
       <span
         className="movie-card__details-value"
       >
-        1h 39m
+        0h 3m
       </span>
     </p>
     <p
@@ -86,7 +62,7 @@ exports[`<MovieDetails /> is rendered correctly 1`] = `
       <span
         className="movie-card__details-value"
       >
-        Comedy
+        
       </span>
     </p>
     <p
@@ -100,7 +76,7 @@ exports[`<MovieDetails /> is rendered correctly 1`] = `
       <span
         className="movie-card__details-value"
       >
-        2014
+        2019
       </span>
     </p>
   </div>

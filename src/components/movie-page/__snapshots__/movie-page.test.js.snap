@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<MoviePage /> is rendered correctly 1`] = `
+exports[`<MoviePage/> is rendered correctly 1`] = `
 Array [
   <section
     className="movie-card movie-card--full"
@@ -12,8 +12,8 @@ Array [
         className="movie-card__bg"
       >
         <img
-          alt="Aviator"
-          src="img/bg-the-grand-budapest-hotel.jpg"
+          alt="Movie 1"
+          src=""
         />
       </div>
       <h1
@@ -29,7 +29,8 @@ Array [
         >
           <a
             className="logo__link"
-            href="main.html"
+            href="/"
+            onClick={[Function]}
           >
             <span
               className="logo__letter logo__letter--1"
@@ -51,84 +52,91 @@ Array [
         <div
           className="user-block"
         >
-          <div
-            className="user-block__avatar"
+          <a
+            className="user-block__link"
+            href="/login"
+            onClick={[Function]}
           >
-            <img
-              alt="User avatar"
-              height="63"
-              src="img/avatar.jpg"
-              width="63"
-            />
-          </div>
+            Sign in
+          </a>
         </div>
       </header>
       <div
         className="movie-card__wrap"
       >
         <div
-          className="movie-card__desc"
+          className="movie-card__info"
         >
-          <h2
-            className="movie-card__title"
-          >
-            Aviator
-          </h2>
-          <p
-            className="movie-card__meta"
-          >
-            <span
-              className="movie-card__genre"
-            >
-              Drama / Epic Movie
-            </span>
-            <span
-              className="movie-card__year"
-            />
-          </p>
           <div
-            className="movie-card__buttons"
+            className="movie-card__desc"
           >
-            <button
-              className="btn btn--play movie-card__button"
-              type="button"
+            <h2
+              className="movie-card__title"
             >
-              <svg
-                height="19"
-                viewBox="0 0 19 19"
-                width="19"
+              Movie 1
+            </h2>
+            <p
+              className="movie-card__meta"
+            >
+              <span
+                className="movie-card__genre"
               >
-                <use
-                  xlinkHref="#play-s"
-                />
-              </svg>
-              <span>
-                Play
+                
               </span>
-            </button>
-            <button
-              className="btn btn--list movie-card__button"
-              type="button"
-            >
-              <svg
-                height="20"
-                viewBox="0 0 19 20"
-                width="19"
+              <span
+                className="movie-card__year"
               >
-                <use
-                  xlinkHref="#add"
-                />
-              </svg>
-              <span>
-                My list
+                2019
               </span>
-            </button>
-            <a
-              className="btn movie-card__button"
-              href="add-review.html"
+            </p>
+            <div
+              className="movie-card__buttons"
             >
-              Add review
-            </a>
+              <a
+                className="btn btn--play movie-card__button"
+                href="/player/1"
+                onClick={[Function]}
+                type="button"
+              >
+                <svg
+                  height="19"
+                  viewBox="0 0 19 19"
+                  width="19"
+                >
+                  <use
+                    xlinkHref="#play-s"
+                  />
+                </svg>
+                <span>
+                  Play
+                </span>
+              </a>
+              <button
+                className="btn btn--list movie-card__button"
+                onClick={[Function]}
+                type="button"
+              >
+                <svg
+                  height="20"
+                  viewBox="0 0 19 20"
+                  width="19"
+                >
+                  <use
+                    xlinkHref="#add"
+                  />
+                </svg>
+                <span>
+                  My list
+                </span>
+              </button>
+              <a
+                className="btn movie-card__button"
+                href="/films/1/review"
+                onClick={[Function]}
+              >
+                Add review
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -143,9 +151,9 @@ Array [
           className="movie-card__poster movie-card__poster--big"
         >
           <img
-            alt="The Grand Budapest Hotel poster"
+            alt="Movie 1"
             height="327"
-            src="img/the-grand-budapest-hotel-poster.jpg"
+            src=""
             width="218"
           />
         </div>
@@ -199,7 +207,7 @@ Array [
             <div
               className="movie-rating__score"
             >
-              9.5
+              4.5
             </div>
             <p
               className="movie-rating__meta"
@@ -207,28 +215,26 @@ Array [
               <span
                 className="movie-rating__level"
               >
-                Very Good
+                Normal
               </span>
               <span
                 className="movie-rating__count"
               >
-                15
+                300
+                 ratings
               </span>
             </p>
           </div>
           <div
             className="movie-card__text"
           >
-            Having received a small factory from his father,
-    Howard Hughes turned it into a gigantic, fantastically profitable enterprise.
-    Having become the owner of a huge film company, he shot the most expensive
-    film of his time and won the hearts of the most beautiful Hollywood actresses.
+            
             <p
               className="movie-card__director"
             >
               <strong>
                 Director: 
-                Martin Scorsese
+                
               </strong>
             </p>
             <p
@@ -236,7 +242,7 @@ Array [
             >
               <strong>
                 Starring: 
-                Leonardo DiCaprio, Cate Blanchett, Kate Beckinsale, John C. Reilly, Alec Baldwin, Alan Alda, Ian Holm, Danny Huston, Gwen Stefani, Jude Law
+                
               </strong>
             </p>
           </div>
@@ -260,38 +266,106 @@ Array [
       >
         <article
           className="small-movie-card catalog__movies-card"
-          onClick={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
+            onClick={[Function]}
           >
             <video
-              height={175}
+              height="175"
               muted={true}
-              poster="img/no-country-for-old-men.jpg"
-              width={280}
-            >
-              <source
-                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-                type="video/mp4"
-              />
-            </video>
+              poster=""
+              src=""
+              style={
+                Object {
+                  "objectFit": "cover",
+                }
+              }
+              width="280"
+            />
           </div>
           <h3
             className="small-movie-card__title"
           >
             <a
               className="small-movie-card__link"
-              href="#"
+              href="/films/1"
+              onClick={[Function]}
             >
-              No Country For Old Men
+              Movie 1
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+            onClick={[Function]}
+          >
+            <video
+              height="175"
+              muted={true}
+              poster=""
+              style={
+                Object {
+                  "objectFit": "cover",
+                }
+              }
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/2"
+              onClick={[Function]}
+            >
+              Movie 2
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+            onClick={[Function]}
+          >
+            <video
+              height="175"
+              muted={true}
+              poster=""
+              src=""
+              style={
+                Object {
+                  "objectFit": "cover",
+                }
+              }
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/3"
+              onClick={[Function]}
+            >
+              Movie 3
             </a>
           </h3>
         </article>
       </div>
-      
     </section>
     <footer
       className="page-footer"
@@ -301,7 +375,8 @@ Array [
       >
         <a
           className="logo__link logo__link--light"
-          href="main.html"
+          href="/"
+          onClick={[Function]}
         >
           <span
             className="logo__letter logo__letter--1"

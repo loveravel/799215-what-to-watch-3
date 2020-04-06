@@ -16,7 +16,7 @@ const validateForm = (data, errors) => {
 };
 
 const withAuthForm = (Component) => {
-  class withAuthForm extends React.PureComponent {
+  class WithAuthForm extends React.PureComponent {
     constructor(props) {
       super(props);
 
@@ -79,8 +79,6 @@ const withAuthForm = (Component) => {
       const {isValid, formError, formData} = this.state;
       const {authorized} = this.props;
 
-      console.log(authorized);
-
       return (
         <Component
           {...this.props}
@@ -95,12 +93,12 @@ const withAuthForm = (Component) => {
     }
   }
 
-  withAuthForm.propTypes = {
+  WithAuthForm.propTypes = {
     login: PropTypes.func,
     authorized: PropTypes.bool,
   };
 
-  return withAuthForm;
+  return WithAuthForm;
 };
 
 const mapStateToProps = (state) => ({

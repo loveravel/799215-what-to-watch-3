@@ -1,58 +1,54 @@
 import React from "react";
 import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import MovieCard from "./movie-card.jsx";
 
-const movie = {
-  id: 1,
-  name: `Aviator`,
-  posterImage: `img/the-grand-budapest-hotel-poster.jpg`,
-  previewImage: `img/aviator.jpg`,
-  backgroundImage: `img/bg-the-grand-budapest-hotel.jpg`,
-  previewVideo: `https://`,
-  video: `https://`,
-  genre: `Drama / Epic Movie`,
-  released: 2014,
-  description: `Having received a small factory from his father,
-    Howard Hughes turned it into a gigantic, fantastically profitable enterprise.
-    Having become the owner of a huge film company, he shot the most expensive
-    film of his time and won the hearts of the most beautiful Hollywood actresses.`,
-  director: `Martin Scorsese`,
-  starring: [
-    `Leonardo DiCaprio`,
-    `Cate Blanchett`,
-    `Kate Beckinsale`,
-    `John C. Reilly`,
-    `Alec Baldwin`,
-    `Alan Alda`,
-    `Ian Holm`,
-    `Danny Huston`,
-    `Gwen Stefani`,
-    `Jude Law`,
-  ],
-  runTime: 170,
-  rating: 9.5,
-  scoresCount: 15,
-  isFavorite: false,
-};
+import {movie} from "../../mocks/test-data.js";
+
+import MovieCard from "./movie-card.jsx";
 
 Enzyme.configure({
   adapter: new Adapter(),
 });
 
-it(`The card should be clicked`, () => {
-  const onCardClick = jest.fn();
+it(`Video player in <MovieCard/> playing after mouseenter`, () => {
+  jest.useFakeTimers();
+
+  const props = {
+    movie,
+    isPlaying: false,
+    onToggleRunMode: jest.fn(),
+  };
 
   const movieCard = shallow(
-      <MovieCard
-        movie={movie}
-        onCardClick={onCardClick}
-      />
+      <MovieCard {...props}>
+        <video/>
+      </MovieCard>
   );
 
-  const movieCardElement = movieCard.find(`.small-movie-card`);
+  const card = movieCard.find(`.small-movie-card`);
 
-  movieCardElement.simulate(`click`);
+  card.simulate(`mouseenter`);
+  jest.runAllTimers();
 
-  expect(onCardClick.mock.calls.length).toBe(1);
+  expect(props.onToggleRunMode).toHaveBeenCalledTimes(1);
+});
+
+it(`Video player in <MovieCard/> paused after mouseleave`, () => {
+  const props = {
+    movie,
+    isPlaying: true,
+    onToggleRunMode: jest.fn(),
+  };
+
+  const movieCard = shallow(
+      <MovieCard {...props}>
+        <video/>
+      </MovieCard>
+  );
+
+  const card = movieCard.find(`.small-movie-card`);
+
+  card.simulate(`mouseleave`);
+
+  expect(props.onToggleRunMode).toHaveBeenCalledTimes(1);
 });

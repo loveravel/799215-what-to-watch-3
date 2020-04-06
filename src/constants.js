@@ -2,6 +2,26 @@ export const DEFAULT_GENRE = `All genres`;
 
 export const EMAIL_REGEX = RegExp(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
 
+export const BASE_URL = `https://htmlacademy-react-3.appspot.com`;
+
+export const MAX_GENRES_COUNT = 10;
+
+export const MAX_RATING = 5;
+
+export const AuthorizationStatus = {
+  AUTH: true,
+  NO_AUTH: false,
+};
+
+export const AppRoute = {
+  ROOT: `/`,
+  LOGIN: `/login`,
+  MY_LIST: `/mylist`,
+  MOVIE: `/films/:id`,
+  ADD_REVIEW: `/films/:id/review`,
+  VIDEO_PLAYER: `/player/:id`,
+};
+
 export const Tab = {
   OVERVIEW: `Overview`,
   DETAILS: `Details`,
@@ -30,4 +50,14 @@ export const ErrorText = {
 export const InputName = {
   EMAIL: `email`,
   PASSWORD: `password`,
+};
+
+export const FavoriteStatus = {
+  YES: 1,
+  NO: 0,
+};
+
+export const CommentLength = {
+  MIN: 50,
+  MAX: 400,
 };

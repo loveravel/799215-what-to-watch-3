@@ -1,55 +1,50 @@
 import React from "react";
 import PropTypes from "prop-types";
-import VideoPlayer from "../video-player/video-player.jsx";
+import {Link} from "react-router-dom";
+
+import history from "../../history.js";
+
 
 class MovieCard extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = {
-      isPlaying: false,
-    };
-
-    this._handleCardMouseEnter = this._handleCardMouseEnter.bind(this);
-    this._handleCardMouseLeave = this._handleCardMouseLeave.bind(this);
+    this._timerID = null;
   }
 
-  _handleCardMouseEnter() {
-    this.setState({
-      enterTimeOut: setTimeout(() => this.setState({
-        isPlaying: true,
-      }), 1000),
-    });
-  }
-
-  _handleCardMouseLeave() {
-    this.setState({
-      leaveTimeOut: setTimeout(() => this.setState({
-        isPlaying: false,
-      }), 1000),
-    });
+  componentWillUnmount() {
+    clearTimeout(this._timerID);
   }
 
   render() {
-    const {name, previewImage, previewVideo, onCardClick} = this.props;
+    const {
+      movie: {id, name},
+      children,
+      onToggleRunMode,
+      isPlaying
+    } = this.props;
+
     return (
       <article
         className="small-movie-card catalog__movies-card"
-        onMouseEnter={this._handleCardMouseEnter}
-        onMouseLeave={this._handleCardMouseLeave}
-        onClick={onCardClick}
+        onMouseEnter={() => {
+          this._timerID = setTimeout(() => onToggleRunMode(true), 1000);
+        }}
+        onMouseLeave={() => {
+          if (isPlaying) {
+            onToggleRunMode();
+          }
+          clearTimeout(this._timerID);
+        }}
       >
-        <div className="small-movie-card__image">
-          <VideoPlayer
-            isPlaying={this.state.isPlaying}
-            previewImage={previewImage}
-            previewVideo={previewVideo}
-          />
+        <div
+          className="small-movie-card__image"
+          onClick={() => history.push(`/films/${id}`)}
+        >
+          {children}
         </div>
         <h3 className="small-movie-card__title">
-          <a className="small-movie-card__link" href="#">
-            {name}
-          </a>
+          <Link className="small-movie-card__link" to={`/films/${id}`}>{name}</Link>
         </h3>
       </article>
     );
@@ -57,10 +52,16 @@ class MovieCard extends React.PureComponent {
 }
 
 MovieCard.propTypes = {
-  name: PropTypes.string,
-  previewImage: PropTypes.string,
-  previewVideo: PropTypes.string,
-  onCardClick: PropTypes.func,
+  movie: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+  }),
+  isPlaying: PropTypes.bool,
+  onToggleRunMode: PropTypes.func,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 };
 
 export default MovieCard;

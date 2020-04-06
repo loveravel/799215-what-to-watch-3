@@ -1,43 +1,44 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import {FilmsCount} from "../../constants.js";
+import withVideoPlayer from "../../hocs/with-video-player/with-video-player.js";
 
 import MovieCard from "../movie-card/movie-card.jsx";
 
-class MovieList extends React.PureComponent {
-  _filterFilmsByGenre(films, genre) {
-    if (genre === `All genres`) {
-      return films;
-    }
 
-    return films.filter((movie) => {
-      return movie.genre === genre;
-    });
-  }
+const WrappedMovieCard = withVideoPlayer(MovieCard);
 
-  render() {
-    const {films, genreFilter, showedFilms} = this.props;
 
-    const filteredFilms = this._filterFilmsByGenre(films, genreFilter);
+const MovieList = (props) => {
+  const {films, filmsCount, message} = props;
 
+  const filmsForShow = filmsCount ? films.slice(0, filmsCount) : films;
+
+  if (films.length === 0) {
     return (
-      <div className="catalog__movies-list">
-        {filteredFilms.map((movie, index) => {
-          return index < showedFilms
-            ? (<MovieCard
-              key={`${movie.name}-${index}`}
-              name={movie.name}
-              previewImage={movie.previewImage}
-              previewVideo={movie.previewVideo}
-              onCardClick={() => {}}
-            />)
-            : false;
-        })}
-      </div>
+      <p>{message}</p>
     );
   }
-}
+
+  return (
+    <div className="catalog__movies-list">
+      {
+        filmsForShow.map((movie, index) => {
+          return (
+            <WrappedMovieCard
+              key={`${movie.name}-${index}`}
+              movie={movie}
+              movieID={movie.id}
+              isPlaying={false}
+              isMuted={true}
+              isPreviewMode={true}
+            />
+          );
+        })
+      }
+    </div>
+  );
+};
 
 MovieList.propTypes = {
   films: PropTypes.arrayOf(PropTypes.shape({
@@ -45,8 +46,8 @@ MovieList.propTypes = {
     posterImage: PropTypes.string,
     genre: PropTypes.string,
   })),
-  genreFilter: PropTypes.string,
-  showedFilms: PropTypes.number,
+  filmsCount: PropTypes.number,
+  message: PropTypes.string.isRequired,
 };
 
 export default MovieList;

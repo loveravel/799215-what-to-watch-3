@@ -1,31 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import Logotype from "../logotype/logotype.jsx";
+import UserBlock from "../user-block/user-block.jsx";
 
 const PageHeader = (props) => {
-  const {avatar} = props;
-
+  const {additionalClass} = props;
   return (
-    <header className="page-header movie-card__head">
-
+    <header className={`page-header ${additionalClass}`}>
       <Logotype/>
-
-      <div className="user-block">
-        <div className="user-block__avatar">
-          <img
-            src={avatar}
-            alt="User avatar"
-            width="63"
-            height="63"
-          />
-        </div>
-      </div>
+      <UserBlock/>
     </header>
   );
 };
 
 PageHeader.propTypes = {
-  avatar: PropTypes.string,
+  additionalClass: PropTypes.string.isRequired,
 };
 
 export default PageHeader;
