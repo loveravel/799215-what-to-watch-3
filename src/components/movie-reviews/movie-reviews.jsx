@@ -17,7 +17,7 @@ const MovieReviews = (props) => {
   return (
     <div className="movie-card__reviews movie-card__row">
       <div className="movie-card__reviews-col">
-        {reviews.slice(0, reviews.length / 2 + 1).map((review, index) =>
+        {reviews.slice(0, Math.ceil(reviews.length / 2)).map((review, index) =>
           <MovieReview
             key={`${review.date}-${index}`}
             user={review.user}
@@ -28,7 +28,7 @@ const MovieReviews = (props) => {
         )}
       </div>
       <div className="movie-card__reviews-col">
-        {reviews.slice(reviews.length / 2 + 1).map((review, index) =>
+        {reviews.slice(Math.ceil(reviews.length / 2)).map((review, index) =>
           <MovieReview
             key={`${review.date}-${index}`}
             user={review.user}

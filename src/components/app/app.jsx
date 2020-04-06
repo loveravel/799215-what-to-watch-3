@@ -50,11 +50,9 @@ const App = (props) => {
         <Route
           exact
           path={AppRoute.MOVIE}
-          render={(prop) => {
+          render={({match}) => {
             return (
-              <MoviePage
-                {...prop}
-              />
+              <MoviePage movieID={+match.params.id}/>
             );
           }}
         />

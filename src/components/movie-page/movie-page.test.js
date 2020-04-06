@@ -28,6 +28,7 @@ it(`<MoviePage/> is rendered correctly`, () => {
     similarFilms: films,
     movie,
     reviews,
+    movieID: movie.id,
     onLoadReviews: () => {},
   };
 
