@@ -19,15 +19,19 @@ export default class ModelMovie {
     this.isFavorite = data.is_favorite || false;
   }
 
-  toInitial() {
-
-  }
-
   static parseMovie(data) {
+    if (!data) {
+      return {};
+    }
+
     return new ModelMovie(data);
   }
 
   static parseFilms(data) {
+    if (!data) {
+      return {};
+    }
+
     return data.map(ModelMovie.parseMovie);
   }
 }

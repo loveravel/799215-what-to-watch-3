@@ -4,6 +4,7 @@ import {Router, Route, Switch} from "react-router-dom";
 import {connect} from "react-redux";
 
 import {getPromoMovie} from "../../reducer/data/selectors.js";
+import {getNetworkFailed} from "../../reducer/app/selectors.js";
 
 import withAuthForm from "../../hocs/with-auth-form/with-auth-form.js";
 import withVideoPlayer from "../../hocs/with-video-player/with-video-player.js";
@@ -27,7 +28,11 @@ const WrappedAddReview = withFormReview(AddReview);
 
 
 const App = (props) => {
-  const {promoMovie} = props;
+  const {promoMovie, networkFailed} = props;
+
+  if (networkFailed) {
+    return <h1>Error: {networkFailed}</h1>;
+  }
 
   return (
     <Router history={history}>
@@ -87,26 +92,13 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  films: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string,
-    posterImage: PropTypes.string,
-    page: PropTypes.string
-  })),
   promoMovie: PropTypes.object,
-  reviews: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number,
-    user: PropTypes.shape({
-      id: PropTypes.number,
-      name: PropTypes.string,
-    }),
-    rating: PropTypes.number,
-    comment: PropTypes.string,
-    date: PropTypes.string,
-  })),
+  networkFailed: PropTypes.any,
 };
 
 const mapStateToProps = (state) => ({
   promoMovie: getPromoMovie(state),
+  networkFailed: getNetworkFailed(state)
 });
 
 export {App};

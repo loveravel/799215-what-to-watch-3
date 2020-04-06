@@ -6,11 +6,11 @@ export default class ModelUser {
     this.avatarUrl = data.avatar_url || ``;
   }
 
-  toInitial() {
-
-  }
-
   static parseUser(data) {
+    if (!data) {
+      return {};
+    }
+
     return new ModelUser(data);
   }
 }
